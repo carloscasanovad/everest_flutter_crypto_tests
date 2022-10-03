@@ -1,5 +1,4 @@
-import 'package:everest_flutter_crypto_list/shared/api/crypto_base_endpoint.dart';
-
+import '../../../shared/api/crypto_base_endpoint.dart';
 import '../../../shared/api/model/crypto_data_response.dart';
 
 class CryptoDataRepository {
