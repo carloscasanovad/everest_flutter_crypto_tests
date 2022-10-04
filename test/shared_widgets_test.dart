@@ -2,11 +2,8 @@ import 'package:everest_flutter_crypto_tests/shared/widgets/bottom_nav_bar.dart'
 import 'package:everest_flutter_crypto_tests/shared/widgets/default_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
 
 import 'helpers/setup_widget_tester.dart';
-
-class MockNavigatorObserver extends Mock implements NavigatorObserver {}
 
 class Counter {
   int value = 0;

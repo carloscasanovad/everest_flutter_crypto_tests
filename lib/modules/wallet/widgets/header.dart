@@ -50,6 +50,7 @@ class _WalletHeaderState extends ConsumerState<Header> {
                         style: kTitleTextStyle,
                       ),
                       IconButton(
+                        key: const Key('changeVisibility'),
                         onPressed: () {
                           ref.read(visibilityProvider.notifier).state =
                               !visibility;
@@ -71,6 +72,7 @@ class _WalletHeaderState extends ConsumerState<Header> {
                         style: kWalletBalanceTextStyle,
                       ),
                       Text(
+                        key: const Key('userBalance'),
                         visibility ? getUserBalance() : kDefaultHideValues,
                         style: kWalletBalanceTextStyle,
                       ),
