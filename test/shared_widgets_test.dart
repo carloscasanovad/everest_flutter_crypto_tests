@@ -1,10 +1,12 @@
-import 'package:everest_flutter_crypto_tests/shared/controllers/asset_provider.dart';
 import 'package:everest_flutter_crypto_tests/shared/widgets/bottom_nav_bar.dart';
 import 'package:everest_flutter_crypto_tests/shared/widgets/default_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 
 import 'helpers/setup_widget_tester.dart';
+
+class MockNavigatorObserver extends Mock implements NavigatorObserver {}
 
 class Counter {
   int value = 0;
@@ -49,4 +51,21 @@ main() {
     });
   });
 
+  group("BottomNavbar Test", () {
+    Future<void> loadPage(WidgetTester tester) async {
+      const defaultAppbar = SetupWidgetTester(
+        child: BottomNavBar(),
+      );
+      await tester.pumpWidget(defaultAppbar);
+    }
+
+    testWidgets("WHEN using BottomNavBar, THEN ensure that some widgets exists",
+        (WidgetTester tester) async {
+      await loadPage(tester);
+
+      expect(find.byKey(const Key('bottomNavBar')), findsOneWidget);
+      expect(find.byKey(const Key('warrenIcon')), findsOneWidget);
+      expect(find.byKey(const Key('cryptoCurrencyIcon')), findsOneWidget);
+    });
+  });
 }

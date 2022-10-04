@@ -14,6 +14,7 @@ class BottomNavBar extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     int selectedIndex = ref.watch(navBarIndexProvider);
     return BottomNavigationBar(
+      key: const Key('bottomNavBar'),
       selectedItemColor: kDefaultRed,
       currentIndex: selectedIndex,
       onTap: (index) {
@@ -25,6 +26,7 @@ class BottomNavBar extends HookConsumerWidget {
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: const ImageIcon(
+            key: Key('warrenIcon'),
             warrenIcon,
             size: 22,
           ),
@@ -32,6 +34,7 @@ class BottomNavBar extends HookConsumerWidget {
         ),
         BottomNavigationBarItem(
           icon: const ImageIcon(
+            key: Key('cryptoCurrencyIcon'),
             cryptoCurrencyIcon,
             size: 24,
           ),
