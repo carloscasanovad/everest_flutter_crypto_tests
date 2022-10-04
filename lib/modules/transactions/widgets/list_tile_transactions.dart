@@ -19,10 +19,14 @@ class ListTileTransactions extends StatelessWidget {
     String formatedDateTime =
         DateFormat('dd/MM/yyyy  -  ').add_jm().format(userTransaction.date);
     Map<String, String> transactionDetails = {
-      AppLocalizations.of(context)!.quantityConverted: userTransaction.cryptoBeingExchangedInfo,
-      AppLocalizations.of(context)!.quantityReceive: userTransaction.cryptoToExchangeInfo,
-      AppLocalizations.of(context)!.total: userTransaction.moneyBeingExchangedInfo,
-      AppLocalizations.of(context)!.exchangeRate: userTransaction.exchangeEqualsTo,
+      AppLocalizations.of(context)!.quantityConverted:
+          userTransaction.cryptoBeingExchangedInfo,
+      AppLocalizations.of(context)!.quantityReceive:
+          userTransaction.cryptoToExchangeInfo,
+      AppLocalizations.of(context)!.total:
+          userTransaction.moneyBeingExchangedInfo,
+      AppLocalizations.of(context)!.exchangeRate:
+          userTransaction.exchangeEqualsTo,
     };
     return ListTile(
       onTap: (() {
@@ -56,23 +60,27 @@ class ListTileTransactions extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
-              Text(
-                userTransaction.cryptoToExchangeInfo,
-                style: kDefaultTitle2TitleStyle,
+              Expanded(
+                child: Text(
+                  userTransaction.cryptoToExchangeInfo,
+                  style: kDefaultTitle2TitleStyle,
+                ),
               ),
-              Container(
-                padding: const EdgeInsets.only(top: 4),
-                width: 150,
-                height: 25,
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 2.0,
-                    ),
-                    child: Text(
-                      userTransaction.moneyBeingExchangedInfo,
-                      style: kDefaultTransactionSubTitleStyle,
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.only(top: 4),
+                  width: 150,
+                  height: 25,
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 2.0,
+                      ),
+                      child: Text(
+                        userTransaction.moneyBeingExchangedInfo,
+                        style: kDefaultTransactionSubTitleStyle,
+                      ),
                     ),
                   ),
                 ),

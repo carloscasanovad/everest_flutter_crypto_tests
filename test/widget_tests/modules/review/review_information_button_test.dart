@@ -18,7 +18,7 @@ main() {
   }
 
   testWidgets(
-    'WHEN ReviewPage is created, THEN build AnimatedContainer with Curves, 0.5sec duration and a initButton Widget',
+    'WHEN ReviewInformationButton is created, THEN build AnimatedContainer with Curves, 0.5sec duration and a initButton Widget',
     (WidgetTester tester) async {
       await loadPage(tester);
       await tester.pumpAndSettle();

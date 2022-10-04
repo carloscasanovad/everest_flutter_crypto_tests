@@ -20,7 +20,7 @@ main() {
   }
 
   testWidgets(
-    '',
+    'WHEN ReviewBody is built, THEN ensure that title and information exists',
     (WidgetTester tester) async {
       FakeCryptoDataRepository fakeData = FakeCryptoDataRepository();
       await loadPage(tester,
