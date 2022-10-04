@@ -65,4 +65,6 @@ main() {
       expect(find.byKey(const Key('cryptoCurrencyIcon')), findsOneWidget);
     });
   });
+
+
 }
