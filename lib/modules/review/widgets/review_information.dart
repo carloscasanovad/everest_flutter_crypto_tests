@@ -55,12 +55,14 @@ class ReviewInformation extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
+                        key: const Key('informationKey'),
                         rowInformation.keys.elementAt(index),
                         style: kSubtitleTextStyle,
                       ),
                     ),
                     Expanded(
                       child: Text(
+                        key: const Key('informationValue'),
                         rowInformation.values.elementAt(index).toString(),
                         style: kDefaultParagraphStyle,
                         textAlign: TextAlign.end,
@@ -73,6 +75,7 @@ class ReviewInformation extends StatelessWidget {
             itemCount: rowInformation.length,
             separatorBuilder: (BuildContext context, int index) =>
                 const Divider(
+              key: Key('divider'),
               height: 1,
               thickness: 1,
             ),
