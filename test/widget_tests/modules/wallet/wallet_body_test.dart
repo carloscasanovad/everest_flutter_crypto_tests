@@ -1,5 +1,4 @@
 import 'package:everest_flutter_crypto_tests/modules/wallet/model/crypto_data_view_data.dart';
-import 'package:everest_flutter_crypto_tests/modules/wallet/model/user_wallet_model.dart';
 import 'package:everest_flutter_crypto_tests/modules/wallet/widgets/crypto_list_tile.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:intl/intl.dart';
 import 'package:network_image_mock/network_image_mock.dart';
 
+import '../../../helpers/fake_crypto_data_view_data.dart';
 import '../../../helpers/setup_widget_tester.dart';
 
 main() {
@@ -28,14 +28,9 @@ main() {
         (WidgetTester tester) async {
       mockNetworkImagesFor(() async {
         final formater = NumberFormat("#,##0.00", "pt");
-        CryptoDataViewData crypto = CryptoDataViewData(
-            id: faker.guid.guid(),
-            symbol: faker.guid.guid(),
-            name: faker.guid.guid(),
-            image: faker.internet.httpUrl(),
-            current_price: faker.currency.random.decimal(scale: 15, min: 1),
-            market_cap_change_percentage_24h:
-                faker.currency.random.decimal(scale: 15, min: 1));
+        FakeCryptoDataRepository fakeData = FakeCryptoDataRepository();
+
+        CryptoDataViewData crypto = fakeData.getData();
         double cryptoBalance = faker.currency.random.decimal(scale: 15, min: 1);
         double cryptoBalanceExchanged = cryptoBalance / crypto.current_price;
 

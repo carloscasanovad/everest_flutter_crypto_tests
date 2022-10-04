@@ -53,13 +53,18 @@ class ReviewInformation extends StatelessWidget {
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      rowInformation.keys.elementAt(index),
-                      style: kSubtitleTextStyle,
+                    Expanded(
+                      child: Text(
+                        rowInformation.keys.elementAt(index),
+                        style: kSubtitleTextStyle,
+                      ),
                     ),
-                    Text(
-                      rowInformation.values.elementAt(index).toString(),
-                      style: kDefaultParagraphStyle,
+                    Expanded(
+                      child: Text(
+                        rowInformation.values.elementAt(index).toString(),
+                        style: kDefaultParagraphStyle,
+                        textAlign: TextAlign.end,
+                      ),
                     ),
                   ],
                 ),

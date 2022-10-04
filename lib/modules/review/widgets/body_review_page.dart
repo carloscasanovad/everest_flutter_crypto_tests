@@ -18,7 +18,7 @@ class BodyReviewPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-           Expanded(
+          Expanded(
             flex: 4,
             child: Text(
               AppLocalizations.of(context)!.confirmTitle,

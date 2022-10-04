@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:everest_flutter_crypto_tests/l10n/app_localizations_en.dart';
 import 'package:everest_flutter_crypto_tests/modules/sucess/sucess_page.dart';
 import 'package:flutter/material.dart';
@@ -11,10 +9,10 @@ main() {
   Future<void> loadPage(
     WidgetTester tester,
   ) async {
-    const walletPageBody = SetupWidgetTester(
+    const successPage = SetupWidgetTester(
       child: SuccessPage(),
     );
-    await tester.pumpWidget(walletPageBody);
+    await tester.pumpWidget(successPage);
   }
 
   testWidgets(
