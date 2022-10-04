@@ -29,24 +29,33 @@ main() {
       expect(find.byIcon(Icons.visibility_off_rounded), findsOneWidget);
       expect(find.byIcon(Icons.visibility_rounded), findsNothing);
     });
-    
+
     testWidgets(
         "WHEN header loaded, THEN calculate and show userBalance based on the userCryptoWallet argument",
         (WidgetTester tester) async {
-      await loadPage(tester, userCryptoWallet: [
+      final formater = NumberFormat("#,##0.00", "pt");
+      double balance = 0;
+
+      List<UserWalletModel> fakeUserCryptoWallet = [
         UserWalletModel(id: '', userCryptoBalance: 10),
         UserWalletModel(id: '', userCryptoBalance: 20),
         UserWalletModel(id: '', userCryptoBalance: 30),
         UserWalletModel(id: '', userCryptoBalance: 40),
-      ]);
+      ];
 
-      final formater = NumberFormat("#,##0.00", "pt");
-      final balance = formater.format(100);
+      await loadPage(tester, userCryptoWallet: fakeUserCryptoWallet);
+
+      String calculateFakeCryptoBalance() {
+        for (var crypto in fakeUserCryptoWallet) {
+          balance += crypto.userCryptoBalance;
+        }
+        return formater.format(balance);
+      }
 
       final userBalance =
           tester.widget<Text>(find.byKey(const Key('userBalance')));
 
-      expect(userBalance.data, balance);
+      expect(userBalance.data, calculateFakeCryptoBalance());
     });
   });
 
