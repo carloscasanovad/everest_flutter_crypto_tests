@@ -4,23 +4,14 @@ import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:intl/intl.dart';
-import 'helpers/fake_crypto_data_view_data.dart';
 import 'helpers/setup_widget_tester.dart';
 
 main() {
   group("WalletPage/Header Test", () {
-    Future<void> loadPage(WidgetTester tester,
-        {required List<UserWalletModel> userCryptoWallet}) async {
-      var walletPageHeader = SetupWidgetTester(
-        child: Header(userCryptoWallet: userCryptoWallet),
-      );
-      await tester.pumpWidget(walletPageHeader);
-    }
-
     testWidgets(
         'WHEN the IconButton of WalletPage is clicked, THEN change visibility icon',
         (WidgetTester tester) async {
-      await loadPage(tester, userCryptoWallet: []);
+      await loadPage(tester, Header(userCryptoWallet: []));
 
       expect(find.byIcon(Icons.visibility_rounded), findsOneWidget);
       await tester.tap(find.byKey(const Key('changeVisibility')));
@@ -48,7 +39,7 @@ main() {
                 faker.currency.random.decimal(scale: 15, min: 1)),
       ];
 
-      await loadPage(tester, userCryptoWallet: fakeUserCryptoWallet);
+      await loadPage(tester, Header(userCryptoWallet: fakeUserCryptoWallet));
 
       String calculateFakeCryptoBalance() {
         for (var crypto in fakeUserCryptoWallet) {

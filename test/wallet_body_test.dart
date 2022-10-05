@@ -5,35 +5,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:intl/intl.dart';
 import 'package:network_image_mock/network_image_mock.dart';
-import 'helpers/fake_crypto_data_view_data.dart';
+import 'helpers/fake_data.dart';
 import 'helpers/setup_widget_tester.dart';
 
 main() {
   group("WalletPage/Body Test", () {
-    Future<void> loadPage(WidgetTester tester,
-        {required CryptoDataViewData crypto,
-        required double cryptoBalance}) async {
-      var walletPageBody = SetupWidgetTester(
-        child: CryptoListTile(
-          crypto: crypto,
-          cryptoBalance: cryptoBalance,
-        ),
-      );
-      await tester.pumpWidget(walletPageBody);
-    }
-
     testWidgets(
         "WHEN CryptoListTile is created, THEN ensure that given data is being used on the widget",
         (WidgetTester tester) async {
       mockNetworkImagesFor(() async {
         final formater = NumberFormat("#,##0.00", "pt");
-        FakeCryptoDataRepository fakeData = FakeCryptoDataRepository();
-
-        CryptoDataViewData crypto = fakeData.getData();
+        FakeData fakeData = FakeData();
+        CryptoDataViewData crypto = fakeData.createCryptoViewData();
         double cryptoBalance = faker.currency.random.decimal(scale: 15, min: 1);
         double cryptoBalanceExchanged = cryptoBalance / crypto.current_price;
 
-        await loadPage(tester, crypto: crypto, cryptoBalance: cryptoBalance);
+        await loadPage(tester,
+            CryptoListTile(crypto: crypto, cryptoBalance: cryptoBalance));
 
         await tester.pumpAndSettle();
 

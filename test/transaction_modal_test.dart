@@ -4,28 +4,19 @@ import 'package:everest_flutter_crypto_tests/modules/transactions/widgets/transa
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'helpers/fake_crypto_data_view_data.dart';
 import 'helpers/setup_widget_tester.dart';
 
 main() {
-  Future<void> loadPage(WidgetTester tester,
-      {required Map<String, String> transactionDetails}) async {
-    var reviewBody = SetupWidgetTester(
-      child: TransactionModalDetails(
-        formatedDateTime: '',
-        transactionDetails: transactionDetails,
-      ),
-    );
-    await tester.pumpWidget(reviewBody);
-  }
-
   testWidgets(
     'WHEN TransactionModal is open, THEN find header and body information',
     (WidgetTester tester) async {
       Map<String, String> transactionDetails = {
         faker.guid.guid(): faker.guid.guid(),
       };
-      await loadPage(tester, transactionDetails: transactionDetails);
+      await loadPage(
+          tester,
+          TransactionModalDetails(
+              formatedDateTime: '', transactionDetails: transactionDetails));
 
       await tester.pumpAndSettle();
 

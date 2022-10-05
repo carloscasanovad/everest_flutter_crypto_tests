@@ -14,16 +14,6 @@ class Counter {
 
 main() {
   group("DefaultAppbar Test", () {
-    Future<void> loadPage(WidgetTester tester,
-        {required IconData icon,
-        required VoidCallback function,
-        required String title}) async {
-      var defaultAppbar = SetupWidgetTester(
-        child: DefaultAppBar(icon: icon, onPressed: function, title: title),
-      );
-      await tester.pumpWidget(defaultAppbar);
-    }
-
     testWidgets(
         "WHEN DefaultAppBar receives information, THEN ensure that the information is being used",
         (WidgetTester tester) async {
@@ -32,11 +22,12 @@ main() {
       String specificTitle = faker.guid.guid();
 
       await loadPage(
-        tester,
-        function: (() => counter.increment()),
-        icon: specificIcon,
-        title: specificTitle,
-      );
+          tester,
+          DefaultAppBar(
+            onPressed: (() => counter.increment()),
+            icon: specificIcon,
+            title: specificTitle,
+          ));
 
       final defaultAppBar =
           tester.widget<DefaultAppBar>(find.byType(DefaultAppBar));
@@ -50,16 +41,9 @@ main() {
   });
 
   group("BottomNavbar Test", () {
-    Future<void> loadPage(WidgetTester tester) async {
-      const defaultAppbar = SetupWidgetTester(
-        child: BottomNavBar(),
-      );
-      await tester.pumpWidget(defaultAppbar);
-    }
-
     testWidgets("WHEN using BottomNavBar, THEN ensure that some widgets exists",
         (WidgetTester tester) async {
-      await loadPage(tester);
+      await loadPage(tester, const BottomNavBar());
 
       expect(find.byKey(const Key('bottomNavBar')), findsOneWidget);
       expect(find.byKey(const Key('warrenIcon')), findsOneWidget);

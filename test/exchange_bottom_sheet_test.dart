@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:everest_flutter_crypto_tests/l10n/app_localizations_en.dart';
 import 'package:everest_flutter_crypto_tests/modules/exchange/widgets/bottom_sheet_widget.dart';
 import 'package:everest_flutter_crypto_tests/modules/wallet/model/crypto_data_view_data.dart';
@@ -8,26 +6,20 @@ import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'helpers/fake_crypto_data_view_data.dart';
+import 'helpers/fake_data.dart';
 import 'helpers/setup_widget_tester.dart';
 
 main() {
-  Future<void> loadPage(WidgetTester tester,
-      {required CryptoDataViewData cryptoToExchangeData}) async {
-    var bottomSheetWidget = SetupWidgetTester(
-      child: BottomSheetWidget(
-        cryptoBalance: faker.currency.random.decimal(scale: 15, min: 1),
-        cryptoToExchangeData: cryptoToExchangeData,
-      ),
-    );
-    await tester.pumpWidget(bottomSheetWidget);
-  }
-
   testWidgets(
     'WHEN bottomSheetWidget is created, THEN validate the main container padding and floatingActionButton',
     (WidgetTester tester) async {
-      FakeCryptoDataRepository fakeData = FakeCryptoDataRepository();
-      await loadPage(tester, cryptoToExchangeData: fakeData.getData());
+      FakeData fakeData = FakeData();
+      await loadPage(
+          tester,
+          BottomSheetWidget(
+            cryptoBalance: faker.currency.random.decimal(scale: 15, min: 1),
+            cryptoToExchangeData: fakeData.createCryptoViewData(),
+          ));
       await tester.pumpAndSettle();
 
       final bottomSheetContainer = tester
