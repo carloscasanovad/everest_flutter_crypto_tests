@@ -2,8 +2,8 @@ import 'package:everest_flutter_crypto_tests/l10n/app_localizations_en.dart';
 import 'package:everest_flutter_crypto_tests/modules/sucess/sucess_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import '../../../helpers/setup_widget_tester.dart';
+import 'helpers/fake_crypto_data_view_data.dart';
+import 'helpers/setup_widget_tester.dart';
 
 main() {
   Future<void> loadPage(

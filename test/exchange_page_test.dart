@@ -5,8 +5,9 @@ import 'package:everest_flutter_crypto_tests/modules/exchange/widgets/exchange_b
 import 'package:everest_flutter_crypto_tests/modules/exchange/widgets/exchange_custom_app_bar.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
-import '../../../helpers/fake_crypto_data_view_data.dart';
-import '../../../helpers/setup_widget_tester.dart';
+
+import 'helpers/fake_crypto_data_view_data.dart';
+import 'helpers/setup_widget_tester.dart';
 
 main() {
   Future<void> loadPage(WidgetTester tester,
