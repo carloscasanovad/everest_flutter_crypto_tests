@@ -25,6 +25,7 @@ class _DropDownItemsState extends ConsumerState<DropDownButtons> {
       List<CryptoDataViewData> cryptoList) {
     List<DropdownMenuItem> cryptoDropdown = cryptoList
         .map((crypto) => DropdownMenuItem(
+              key: Key(crypto.id),
               value: crypto.symbol.toUpperCase(),
               child: Row(
                 children: [
@@ -53,9 +54,11 @@ class _DropDownItemsState extends ConsumerState<DropDownButtons> {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         DropdownButton(
+          key: const Key('cryptoBeingExchangeDropdown'),
           value: cryptoSymbol,
           items: [
             DropdownMenuItem(
+              key: const Key('cryptoBeingExchange'),
               value: cryptoSymbol,
               child: Row(
                 children: [
@@ -79,6 +82,7 @@ class _DropDownItemsState extends ConsumerState<DropDownButtons> {
           size: 30,
         ),
         DropdownButton(
+          key: const Key('cryptoToExchangeDropdown'),
           value: widget.selectedCrypto,
           items: getCryptoDropdown(widget.cryptoList),
           menuMaxHeight: 300,

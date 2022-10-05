@@ -25,7 +25,7 @@ main() {
     }
 
     testWidgets(
-        "WHEN DefaultApp receives information, THEN ensure that the information is being used",
+        "WHEN DefaultAppBar receives information, THEN ensure that the information is being used",
         (WidgetTester tester) async {
       final counter = Counter();
       IconData specificIcon = Icons.abc;
