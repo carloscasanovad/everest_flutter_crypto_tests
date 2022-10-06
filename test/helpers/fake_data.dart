@@ -6,7 +6,7 @@ import 'package:everest_flutter_crypto_tests/modules/wallet/model/crypto_data_vi
 import 'package:faker/faker.dart';
 
 class FakeData {
-  CryptoDataViewData createCryptoViewData() {
+  static CryptoDataViewData createCryptoViewData() {
     CryptoDataViewData repo = CryptoDataViewData(
       id: faker.guid.guid(),
       symbol: faker.guid.guid(),
@@ -19,7 +19,7 @@ class FakeData {
     return repo;
   }
 
-  CryptoDataArguments createCryptoDataArguments() {
+  static CryptoDataArguments createCryptoDataArguments() {
     CryptoDataArguments repo = CryptoDataArguments(
       crypto: createCryptoViewData(),
       cryptoBalance: faker.currency.random.decimal(scale: 15, min: 1),
@@ -28,7 +28,7 @@ class FakeData {
     return repo;
   }
 
-  ExchangeArguments createExchangeArguments() {
+  static ExchangeArguments createExchangeArguments() {
     ExchangeArguments repo = ExchangeArguments(
         crypto: createCryptoViewData(),
         cryptoBalance: faker.currency.random.decimal(scale: 15, min: 1),
@@ -36,7 +36,7 @@ class FakeData {
     return repo;
   }
 
-  ReviewArguments createReviewArguments() {
+  static ReviewArguments createReviewArguments() {
     ReviewArguments repo = ReviewArguments(
       cryptoToExchangeValue: faker.currency.random.decimal(scale: 15, min: 1),
       cryptoToExchangeData: createCryptoViewData(),
@@ -47,7 +47,7 @@ class FakeData {
     return repo;
   }
 
-  TransactionsModel createTransactionModel() {
+  static TransactionsModel createTransactionModel() {
     TransactionsModel repo = TransactionsModel(
         cryptoBeingExchangedInfo: faker.guid.guid(),
         cryptoToExchangeInfo: faker.guid.guid(),

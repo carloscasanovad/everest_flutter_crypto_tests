@@ -11,9 +11,8 @@ main() {
   testWidgets(
     'WHEN ExchangePage is built, THEN ensure that appBar, body and bottomSheet exists',
     (WidgetTester tester) async {
-      FakeData fakeData = FakeData();
       await loadPage(tester,
-          ExchangePage(exchangeArguments: fakeData.createExchangeArguments()));
+          ExchangePage(exchangeArguments: FakeData.createExchangeArguments()));
       await tester.pumpAndSettle();
       expect(find.byType(ExchangeCustomAppBar), findsOneWidget);
       expect(find.byType(ExchangeBody), findsOneWidget);

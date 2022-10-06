@@ -9,12 +9,11 @@ main() {
   testWidgets(
     'WHEN tapped on ListTile of TransactionsPage, THEN show ModalBottomSheet',
     (WidgetTester tester) async {
-      FakeData fakeData = FakeData();
       await loadPage(
           tester,
           ListTileTransactions(
               formattedDate: '',
-              userTransaction: fakeData.createTransactionModel()));
+              userTransaction: FakeData.createTransactionModel()));
 
       await tester.pumpAndSettle();
 

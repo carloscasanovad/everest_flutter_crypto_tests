@@ -10,11 +10,10 @@ main() {
   testWidgets(
     'WHEN detailsPage is created, THEN find main widgets',
     (WidgetTester tester) async {
-      FakeData fakeData = FakeData();
       await loadPage(
           tester,
           DetailsPage(
-              cryptoDataArguments: fakeData.createCryptoDataArguments()));
+              cryptoDataArguments: FakeData.createCryptoDataArguments()));
 
       await tester.pumpAndSettle();
 

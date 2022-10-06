@@ -15,8 +15,7 @@ main() {
         (WidgetTester tester) async {
       mockNetworkImagesFor(() async {
         final formater = NumberFormat("#,##0.00", "pt");
-        FakeData fakeData = FakeData();
-        CryptoDataViewData crypto = fakeData.createCryptoViewData();
+        CryptoDataViewData crypto = FakeData.createCryptoViewData();
         double cryptoBalance = faker.currency.random.decimal(scale: 15, min: 1);
         double cryptoBalanceExchanged = cryptoBalance / crypto.current_price;
 

@@ -10,9 +10,8 @@ main() {
   testWidgets(
     'WHEN ReviewBody is built, THEN ensure that title and information exists',
     (WidgetTester tester) async {
-      FakeData fakeData = FakeData();
       await loadPage(tester,
-          BodyReviewPage(reviewArguments: fakeData.createReviewArguments()));
+          BodyReviewPage(reviewArguments: FakeData.createReviewArguments()));
       await tester.pumpAndSettle();
 
       final mainPadding = tester.widget<Padding>(find.byType(Padding).first);

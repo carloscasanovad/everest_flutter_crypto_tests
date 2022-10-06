@@ -1,6 +1,5 @@
 import 'package:everest_flutter_crypto_tests/l10n/app_localizations_en.dart';
 import 'package:everest_flutter_crypto_tests/modules/exchange/widgets/bottom_sheet_widget.dart';
-import 'package:everest_flutter_crypto_tests/modules/wallet/model/crypto_data_view_data.dart';
 import 'package:everest_flutter_crypto_tests/shared/constants/app_colors.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
@@ -13,12 +12,11 @@ main() {
   testWidgets(
     'WHEN bottomSheetWidget is created, THEN validate the main container padding and floatingActionButton',
     (WidgetTester tester) async {
-      FakeData fakeData = FakeData();
       await loadPage(
           tester,
           BottomSheetWidget(
             cryptoBalance: faker.currency.random.decimal(scale: 15, min: 1),
-            cryptoToExchangeData: fakeData.createCryptoViewData(),
+            cryptoToExchangeData: FakeData.createCryptoViewData(),
           ));
       await tester.pumpAndSettle();
 
