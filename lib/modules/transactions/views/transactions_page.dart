@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/constants/app_colors.dart';
 import '../../../shared/constants/app_text_styles.dart';
 import '../../../shared/widgets/bottom_nav_bar.dart';
 import '../widgets/list_view_transactions.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TransactionsPage extends StatelessWidget {
   const TransactionsPage({super.key});

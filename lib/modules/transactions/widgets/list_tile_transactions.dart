@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/constants/app_text_styles.dart';
 import '../model/transactions_model.dart';
 import 'transaction_modal_details.dart';

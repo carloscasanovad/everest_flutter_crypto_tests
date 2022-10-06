@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import '../../l10n/app_localizations.dart';
 import '../../shared/constants/app_text_styles.dart';
 import '../../shared/controllers/asset_provider.dart';
 import '../../shared/widgets/default_appbar.dart';
 import '../exchange/controllers/provider.dart';
 import '../wallet/model/crypto_data_view_data.dart';
 import '../wallet/views/wallet_page.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SuccessPage extends HookConsumerWidget {
   const SuccessPage({super.key});

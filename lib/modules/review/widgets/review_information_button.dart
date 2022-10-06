@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/constants/app_colors.dart';
 import '../../../shared/controllers/user_transaction_notifier.dart';
 import '../../sucess/sucess_page.dart';
@@ -45,7 +45,7 @@ class _ReviewInformationButtonState
       width: width,
       child: isStreched
           ? Container(
-            key: const Key('initButton'),
+              key: const Key('initButton'),
               margin: const EdgeInsets.only(bottom: 10),
               child: MaterialButton(
                 onPressed: () async {
@@ -98,7 +98,7 @@ class _ReviewInformationButtonState
   }
 
   Widget SmallButton(bool isDone) => Container(
-    key: const Key('loadingButton'),
+        key: const Key('loadingButton'),
         margin: const EdgeInsets.only(bottom: 10),
         decoration: BoxDecoration(
           color: isDone ? const Color(0xffD6FFDF) : kDefaultRed,
