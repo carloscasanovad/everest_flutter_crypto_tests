@@ -33,8 +33,9 @@ class DetailsLineChart extends HookConsumerWidget {
           ),
         ),
         Container(
+          key: const Key('chartContainer'),
           margin: const EdgeInsets.only(top: 5),
-          width: MediaQuery.of(context).size.width,
+          width: double.infinity,
           height: 140,
           child: LineChart(
             LineChartData(

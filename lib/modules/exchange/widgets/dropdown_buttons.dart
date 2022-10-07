@@ -63,6 +63,7 @@ class _DropDownItemsState extends ConsumerState<DropDownButtons> {
               child: Row(
                 children: [
                   Image.network(
+                    key: const Key('criptoLogo'),
                     cryptoLogo,
                     height: 24,
                   ),
@@ -77,6 +78,7 @@ class _DropDownItemsState extends ConsumerState<DropDownButtons> {
           onChanged: (value) {},
         ),
         const Icon(
+          key: Key('exchangeSwapIcon'),
           Icons.swap_horiz,
           color: kDefaultRed,
           size: 30,

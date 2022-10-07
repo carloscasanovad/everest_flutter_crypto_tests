@@ -14,12 +14,14 @@ class LineChartButtonWidget extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     int chartIndexTapped = ref.watch(chartIndexTappedProvider);
     return Container(
+      key: const Key('lineChartContainer'),
       margin: const EdgeInsets.only(
         top: 17,
         right: 10,
       ),
       width: 35,
       child: MaterialButton(
+        key: const Key('lineChartMaterialButton'),
         elevation: 0,
         padding: const EdgeInsets.all(1),
         color: chartIndexTapped == dayRange

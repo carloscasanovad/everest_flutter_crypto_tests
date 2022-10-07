@@ -34,6 +34,7 @@ class CryptoInformation extends HookConsumerWidget {
     }
 
     return Padding(
+      key: const Key('cryptoInformationPadding'),
       padding: const EdgeInsets.only(
         top: 8,
         bottom: 30,

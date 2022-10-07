@@ -52,6 +52,7 @@ class _ExchangeFormFieldWidgetState
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TextFormField(
+          key: const Key('textFormField'),
           style: const TextStyle(
             fontSize: 28,
           ),
@@ -102,6 +103,7 @@ class _ExchangeFormFieldWidgetState
           height: 10,
         ),
         Text(
+          key: const Key('textHelper'),
           showMoneyHelper
               ? 'R\$ ${formater.format(moneyToChange)}'
               : AppLocalizations.of(context)!.insufficientFunds,

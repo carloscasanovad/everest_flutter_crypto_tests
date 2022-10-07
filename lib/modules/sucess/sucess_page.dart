@@ -16,6 +16,7 @@ class SuccessPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: DefaultAppBar(
+        key: const Key('sucessAppBar'),
         title: '',
         onPressed: () {
           ref.read(ableToExchangeProvider.notifier).state = false;

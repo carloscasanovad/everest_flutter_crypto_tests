@@ -5,8 +5,8 @@ import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'helpers/fake_data.dart';
-import 'helpers/setup_widget_tester.dart';
+import '../../helpers/fake_data.dart';
+import '../../helpers/setup_widget_tester.dart';
 
 void main() {
   testWidgets(

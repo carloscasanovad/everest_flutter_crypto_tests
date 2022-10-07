@@ -1,4 +1,5 @@
 import 'package:everest_flutter_crypto_tests/modules/details/model/crypto_data_arguments.dart';
+import 'package:everest_flutter_crypto_tests/modules/details/model/market_chart_view_data.dart';
 import 'package:everest_flutter_crypto_tests/modules/exchange/model/exchange_arguments.dart';
 import 'package:everest_flutter_crypto_tests/modules/review/model/review_arguments.dart';
 import 'package:everest_flutter_crypto_tests/modules/transactions/model/transactions_model.dart';
@@ -16,6 +17,19 @@ class FakeData {
       market_cap_change_percentage_24h:
           faker.currency.random.decimal(scale: 15, min: 1),
     );
+    return repo;
+  }
+
+  static createMarketChartViewData() {
+    MarketChartViewData repo = MarketChartViewData(prices: [
+      [faker.currency.random.integer(2), faker.currency.random.integer(2)],
+      [faker.currency.random.integer(2), faker.currency.random.integer(2)],
+      [faker.currency.random.integer(2), faker.currency.random.integer(2)],
+      [faker.currency.random.integer(2), faker.currency.random.integer(2)],
+      [faker.currency.random.integer(2), faker.currency.random.integer(2)],
+      [faker.currency.random.integer(2), faker.currency.random.integer(2)],
+      [faker.currency.random.integer(2), faker.currency.random.integer(2)],
+    ]);
     return repo;
   }
 

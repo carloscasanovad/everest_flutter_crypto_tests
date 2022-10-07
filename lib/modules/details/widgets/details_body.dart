@@ -4,9 +4,7 @@ import '../../../shared/widgets/default_error_widget.dart';
 import '../../../shared/widgets/default_loading_spinner.dart';
 import '../model/crypto_data_arguments.dart';
 import '../controllers/providers.dart';
-import 'convert_crypto_button.dart';
 import 'crypto_information.dart';
-import 'details_header.dart';
 import 'details_line_chart.dart';
 import 'line_chart_list_view_buttons.dart';
 
@@ -22,19 +20,14 @@ class DetailsBody extends HookConsumerWidget {
     final marketChartData = ref.watch(marketChartDataProvider(cryptoId));
     return marketChartData.when(
       data: (data) {
-        return SingleChildScrollView(
-          padding: const EdgeInsets.all(18),
-          child: Column(
-            children: [
-              DetailsHeader(cryptoDataArguments: cryptoDataArguments),
-              DetailsLineChart(marketChartData: data),
-              LineChartListViewButtons(marketChartdata: data),
-              CryptoInformation(
-                  marketChartData: data,
-                  cryptoDataArguments: cryptoDataArguments),
-              ConvertCryptoButton(cryptoDataArguments: cryptoDataArguments),
-            ],
-          ),
+        return Column(
+          children: [
+            DetailsLineChart(marketChartData: data),
+            LineChartListViewButtons(marketChartdata: data),
+            CryptoInformation(
+                marketChartData: data,
+                cryptoDataArguments: cryptoDataArguments),
+          ],
         );
       },
       error: (error, stackTrace) {

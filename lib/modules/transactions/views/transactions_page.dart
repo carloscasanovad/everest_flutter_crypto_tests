@@ -14,12 +14,12 @@ class TransactionsPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
+          key: const Key('mainPadding'),
           padding: const EdgeInsets.symmetric(
             vertical: 30,
             horizontal: 20,
           ),
           child: Column(
-            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -30,11 +30,12 @@ class TransactionsPage extends StatelessWidget {
                 height: 20,
               ),
               const Divider(
+                key: Key('mainDivider'),
                 height: 10,
                 thickness: 1,
                 color: kDefaultLightGrey,
               ),
-              const ListViewTransactions(),
+              const Expanded(child: ListViewTransactions()),
             ],
           ),
         ),

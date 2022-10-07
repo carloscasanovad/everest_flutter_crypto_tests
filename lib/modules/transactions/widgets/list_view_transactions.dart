@@ -27,24 +27,24 @@ class _ListViewTransactionsState extends ConsumerState<ListViewTransactions> {
   @override
   Widget build(BuildContext context) {
     final userTransactions = ref.watch(movementsProvider);
-    return Expanded(
-      child: ListView.separated(
-        itemCount: userTransactions.length,
-        itemBuilder: (BuildContext context, int index) {
-          var userTransaction = userTransactions[index];
-          String formattedDate =
-              DateFormat.yMd('pt-br').format(userTransaction.date);
+    return ListView.separated(
+      key: const Key('listViewTransactions'),
+      itemCount: userTransactions.length,
+      itemBuilder: (BuildContext context, int index) {
+        var userTransaction = userTransactions[index];
+        String formattedDate =
+            DateFormat.yMd('pt-br').format(userTransaction.date);
 
-          return ListTileTransactions(
-            userTransaction: userTransaction,
-            formattedDate: formattedDate,
-          );
-        },
-        separatorBuilder: (BuildContext context, int index) => const Divider(
-          thickness: 1,
-          height: 4,
-          color: kDefaultLightGrey,
-        ),
+        return ListTileTransactions(
+          userTransaction: userTransaction,
+          formattedDate: formattedDate,
+        );
+      },
+      separatorBuilder: (BuildContext context, int index) => const Divider(
+        key: Key('separatorDivider'),
+        thickness: 1,
+        height: 4,
+        color: kDefaultLightGrey,
       ),
     );
   }

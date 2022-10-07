@@ -19,16 +19,19 @@ class DetailsHeader extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              cryptoDataArguments.crypto.name,
-              style: const TextStyle(
-                fontSize: 32,
-                color: kDefaultBlack,
-                fontFamily: 'Montserrat',
-                fontWeight: FontWeight.w600,
+            Expanded(
+              child: Text(
+                cryptoDataArguments.crypto.name,
+                style: const TextStyle(
+                  fontSize: 32,
+                  color: kDefaultBlack,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
             CircleAvatar(
+              key: const Key('cryptoAvatar'),
               backgroundColor: const Color(0x00ffffff),
               radius: 30,
               backgroundImage: NetworkImage(cryptoDataArguments.crypto.image),

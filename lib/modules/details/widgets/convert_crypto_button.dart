@@ -15,8 +15,10 @@ class ConvertCryptoButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      key: const Key('convertSizedBoxButton'),
       height: 46,
       child: MaterialButton(
+        key: const Key('convertButton'),
         onPressed: () {
           Navigator.pushNamed(
             context,
@@ -28,7 +30,7 @@ class ConvertCryptoButton extends StatelessWidget {
             ),
           );
         },
-        minWidth: MediaQuery.of(context).size.width,
+        minWidth: double.infinity,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
           side: const BorderSide(color: kDefaultRed),

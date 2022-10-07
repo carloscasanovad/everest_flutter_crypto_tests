@@ -20,6 +20,7 @@ class ExchangeCustomAppBar extends HookConsumerWidget
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return AppBar(
+      key: const Key('customAppBar'),
       elevation: 3,
       backgroundColor: kDefaultBackgroundColor,
       title: Text(
@@ -41,6 +42,7 @@ class ExchangeCustomAppBar extends HookConsumerWidget
           Navigator.of(context).pop();
         },
         icon: const Icon(
+          key:  Key('appBarIcon'),
           Icons.arrow_back_ios,
           color: kDefaultBlack,
           size: 21,

@@ -4,7 +4,7 @@ import '../../../l10n/app_localizations.dart';
 import '../../../shared/widgets/default_appbar.dart';
 import '../model/crypto_data_arguments.dart';
 import '../controllers/providers.dart';
-import '../widgets/details_body.dart';
+import 'details_screen.dart';
 
 class DetailsPage extends HookConsumerWidget {
   CryptoDataArguments cryptoDataArguments;
@@ -26,7 +26,7 @@ class DetailsPage extends HookConsumerWidget {
         },
         icon: Icons.arrow_back_ios_new_outlined,
       ),
-      body: DetailsBody(
+      body: DetailsScreen(
         cryptoDataArguments: cryptoDataArguments,
       ),
     );
