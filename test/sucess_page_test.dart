@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'helpers/setup_widget_tester.dart';
 
-main() {
+void main() {
   testWidgets(
     "WHEN SucessPage is showed, THEN find a Hero widget with image and a success description",
     (WidgetTester tester) async {

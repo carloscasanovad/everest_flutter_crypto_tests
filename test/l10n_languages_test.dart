@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'helpers/language_widget_tester.dart';
 import 'helpers/setup_widget_tester.dart';
 
-main() {
+void main() {
   group(
       'L10n - English',
       (() => testWidgets(

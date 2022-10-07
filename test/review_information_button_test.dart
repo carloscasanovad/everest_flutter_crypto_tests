@@ -7,7 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'helpers/setup_widget_tester.dart';
 
-main() {
+void main() {
   testWidgets(
     'WHEN ReviewInformationButton is created, THEN build AnimatedContainer with Curves, 0.5sec duration and a initButton Widget',
     (WidgetTester tester) async {

@@ -8,7 +8,7 @@ import 'package:network_image_mock/network_image_mock.dart';
 import 'helpers/fake_data.dart';
 import 'helpers/setup_widget_tester.dart';
 
-main() {
+void main() {
   group("WalletPage/Body Test", () {
     testWidgets(
         "WHEN CryptoListTile is created, THEN ensure that given data is being used on the widget",

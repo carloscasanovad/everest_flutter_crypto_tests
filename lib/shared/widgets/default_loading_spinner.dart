@@ -12,6 +12,7 @@ class DefaultLoadingSpinner extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: SpinKitFadingCube(
+        key: Key("loadingSpinner"),
         color: kDefaultRed,
         size: 50.0,
       ),

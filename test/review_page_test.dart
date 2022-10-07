@@ -7,7 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'helpers/fake_data.dart';
 import 'helpers/setup_widget_tester.dart';
 
-main() {
+void main() {
   testWidgets(
     'WHEN ReviewPage is built, THEN ensure that reviewAppBar has an specific Icon & main widgets exists',
     (WidgetTester tester) async {

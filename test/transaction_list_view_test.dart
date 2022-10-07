@@ -5,7 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'helpers/fake_data.dart';
 import 'helpers/setup_widget_tester.dart';
 
-main() {
+void main() {
   testWidgets(
     'WHEN tapped on ListTile of TransactionsPage, THEN show ModalBottomSheet',
     (WidgetTester tester) async {

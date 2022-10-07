@@ -8,7 +8,7 @@ import 'package:mocktail/mocktail.dart';
 import '../helpers/api_factory.dart';
 import 'crypto_data_repository_test.dart';
 
-main() {
+void main() {
   late CryptoDataEndpointMock cryptoDataEndpointMock;
   late MarketChartRepository marketChartRepository;
   late GetCryptoMarketChartUseCase sut;

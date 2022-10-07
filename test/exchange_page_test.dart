@@ -7,7 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'helpers/fake_data.dart';
 import 'helpers/setup_widget_tester.dart';
 
-main() {
+void main() {
   testWidgets(
     'WHEN ExchangePage is built, THEN ensure that appBar, body and bottomSheet exists',
     (WidgetTester tester) async {

@@ -8,7 +8,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'helpers/fake_data.dart';
 import 'helpers/setup_widget_tester.dart';
 
-main() {
+void main() {
   testWidgets(
     'WHEN ReviewInformation is created, THEN ensure that main widgets exists',
     (WidgetTester tester) async {

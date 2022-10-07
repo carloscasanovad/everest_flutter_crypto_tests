@@ -7,7 +7,7 @@ import 'package:network_image_mock/network_image_mock.dart';
 import 'helpers/fake_data.dart';
 import 'helpers/setup_widget_tester.dart';
 
-main() {
+void main() {
   testWidgets(
     'WHEN DropDownButtons receives data, THEN ensure that the button of cryptoBeingExchange is receving the specific value passed on arguments',
     (WidgetTester tester) async {

@@ -6,7 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'helpers/fake_data.dart';
 import 'helpers/setup_widget_tester.dart';
 
-main() {
+void main() {
   testWidgets(
     'WHEN ReviewBody is built, THEN ensure that title and information exists',
     (WidgetTester tester) async {

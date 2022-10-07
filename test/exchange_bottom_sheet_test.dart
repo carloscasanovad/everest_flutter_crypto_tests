@@ -8,7 +8,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'helpers/fake_data.dart';
 import 'helpers/setup_widget_tester.dart';
 
-main() {
+void main() {
   testWidgets(
     'WHEN bottomSheetWidget is created, THEN validate the main container padding and floatingActionButton',
     (WidgetTester tester) async {

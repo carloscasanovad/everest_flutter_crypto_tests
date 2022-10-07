@@ -6,7 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'helpers/fake_data.dart';
 import 'helpers/setup_widget_tester.dart';
 
-main() {
+void main() {
   testWidgets(
     'WHEN detailsPage is created, THEN find main widgets',
     (WidgetTester tester) async {
