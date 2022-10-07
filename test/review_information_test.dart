@@ -1,3 +1,4 @@
+import 'package:everest_flutter_crypto_tests/l10n/app_localizations_en.dart';
 import 'package:everest_flutter_crypto_tests/modules/review/widgets/review_information.dart';
 import 'package:everest_flutter_crypto_tests/modules/review/widgets/review_information_button.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,9 @@ main() {
       expect(find.byKey(const Key('informationKey')), findsNWidgets(3));
       expect(find.byKey(const Key('informationValue')), findsNWidgets(3));
       expect(find.byType(ReviewInformationButton), findsOneWidget);
+      expect(find.text(AppLocalizationsEn().exchange), findsOneWidget);
+      expect(find.text(AppLocalizationsEn().receive), findsOneWidget);
+      expect(find.text(AppLocalizationsEn().exchangeRate), findsOneWidget);
     },
   );
 }

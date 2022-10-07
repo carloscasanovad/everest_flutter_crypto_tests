@@ -47,7 +47,7 @@
     "@insufficientFunds": {
       "description": "default text for insufficient funds"
     },
-    "totalBalance": "Total balance:",
+    "totalBalance": "Total balance",
     "@totalBalance": {
       "description": "user crypto balance for an specific crypto"
     },
@@ -74,10 +74,6 @@
     "exchangeRate": "Exchange rate",
     "@exchangeRate": {
       "description": "exchange rate text"
-    },
-    "transactionsAppBar": "Transactions",
-    "@transactionsAppBar": {
-      "description": "transactions appBar title"
     },
     "portfolio": "Portfolio",
     "@portfolio": {

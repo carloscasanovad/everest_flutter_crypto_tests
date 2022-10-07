@@ -25,8 +25,9 @@ void main() {
             data: ApiFactory.getCryptosData(),
             requestOptions: RequestOptions(path: faker.internet.httpUrl())));
 
-    await sut.getAllCryptosData();
+    final cryptoData = await sut.getAllCryptosData();
 
     verify(() => cryptoDataEndpointMock.getCryptosData()).called(1);
+    expect(cryptoData.first.id.isNotEmpty, true);
   }));
 }

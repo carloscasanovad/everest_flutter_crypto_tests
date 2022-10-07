@@ -50,19 +50,16 @@ class AppLocalizationsEs extends AppLocalizations {
   String get confirmTitle => 'Revise los datos de su conversión';
 
   @override
-  String get convert => 'Convertir';
+  String get convert => 'Convertir para';
 
   @override
-  String get payWith => 'Convertir';
+  String get payWith => 'Pagar con';
 
   @override
   String get receive => 'Recibir';
 
   @override
   String get exchangeRate => 'Cambio';
-
-  @override
-  String get transactionsAppBar => 'Movimentaciones';
 
   @override
   String get portfolio => 'Portafolio';

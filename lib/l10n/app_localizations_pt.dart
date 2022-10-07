@@ -17,7 +17,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get convertCrypto => 'Converter cripto';
 
   @override
-  String get currentPrice => 'Preço actual';
+  String get currentPrice => 'Preço atual';
 
   @override
   String get priceVariation => 'Variação';
@@ -50,10 +50,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get confirmTitle => 'Revise os dados da su conversão';
 
   @override
-  String get convert => 'Converter';
+  String get convert => 'Converter para';
 
   @override
-  String get payWith => 'Converter';
+  String get payWith => 'Pagar com';
 
   @override
   String get receive => 'Receber';
@@ -62,13 +62,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get exchangeRate => 'Câmbio';
 
   @override
-  String get transactionsAppBar => 'Movimentacões';
-
-  @override
   String get portfolio => 'Portfolio';
 
   @override
-  String get transactions => 'Movimentações';
+  String get transactions => 'Movimentacões';
 
   @override
   String get successTitle => 'Conversão efetuada';

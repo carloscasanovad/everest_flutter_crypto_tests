@@ -18,6 +18,7 @@ class ReviewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DefaultAppBar(
+        key: const Key('reviewAppBar'),
         title: AppLocalizations.of(context)!.confirm,
         onPressed: () {
           Navigator.of(context).pop();

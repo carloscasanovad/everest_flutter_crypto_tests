@@ -45,9 +45,10 @@ class _ReviewInformationButtonState
       width: width,
       child: isStreched
           ? Container(
-              key: const Key('initButton'),
+              key: const Key('initContainer'),
               margin: const EdgeInsets.only(bottom: 10),
               child: MaterialButton(
+                key: const Key('initContainerButton'),
                 onPressed: () async {
                   setState(() => width = 46);
                   await Future.delayed(

@@ -35,6 +35,7 @@ class UserBalance extends StatelessWidget implements PreferredSizeWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Expanded(
+              flex: 2,
               child: Text(
                 AppLocalizations.of(context)!.totalBalance,
                 style: kDefaultGreyParagraphStyle,
