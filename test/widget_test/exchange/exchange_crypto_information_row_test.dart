@@ -1,8 +1,4 @@
 import 'package:everest_flutter_crypto_tests/modules/details/widgets/crypto_infomation_row.dart';
-import 'package:everest_flutter_crypto_tests/modules/exchange/model/exchange_arguments.dart';
-import 'package:everest_flutter_crypto_tests/modules/exchange/widgets/dropdown_buttons.dart';
-import 'package:everest_flutter_crypto_tests/modules/wallet/model/crypto_data_view_data.dart';
-import 'package:everest_flutter_crypto_tests/shared/constants/app_colors.dart';
 import 'package:everest_flutter_crypto_tests/shared/constants/app_text_styles.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';

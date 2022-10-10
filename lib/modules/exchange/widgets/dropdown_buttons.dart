@@ -28,6 +28,7 @@ class _DropDownItemsState extends ConsumerState<DropDownButtons> {
               key: Key(crypto.id),
               value: crypto.symbol.toUpperCase(),
               child: Row(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.network(
                     crypto.image,

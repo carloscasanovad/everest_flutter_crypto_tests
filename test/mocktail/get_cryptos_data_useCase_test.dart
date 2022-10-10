@@ -30,6 +30,8 @@ void main() {
     final userWallet = await sut.getWallet();
     final cryptoListViewData = await sut.execute();
     expect(userWallet.isNotEmpty, true);
+    expect(userWallet.first.id.isNotEmpty, true);
+    expect(userWallet.first.userCryptoBalance.isFinite, true);
     expect(cryptoListViewData.cryptoListDataView.isNotEmpty, true);
   }));
 }

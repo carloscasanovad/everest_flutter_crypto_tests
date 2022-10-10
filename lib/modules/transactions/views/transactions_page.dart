@@ -40,7 +40,7 @@ class TransactionsPage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: const BottomNavBar(),
+      bottomNavigationBar: BottomNavBar(index: 1),
     );
   }
 }

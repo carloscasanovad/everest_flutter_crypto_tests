@@ -1,4 +1,5 @@
 import 'package:decimal/decimal.dart';
+import 'package:everest_flutter_crypto_tests/modules/exchange/controllers/regex_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -64,8 +65,7 @@ class _ExchangeFormFieldWidgetState
           },
           onChanged: (value) {
             if (value != '') {
-              Decimal formattedValue =
-                  Decimal.parse(value.replaceAll(RegExp(r','), '.'));
+              Decimal formattedValue = RegexController.arrangeNumber(value);
               moneyToChange =
                   formattedValue.toDouble() * cryptoPrice.toDouble();
 

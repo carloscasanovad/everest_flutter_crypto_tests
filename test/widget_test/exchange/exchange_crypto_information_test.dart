@@ -1,4 +1,3 @@
-import 'package:everest_flutter_crypto_tests/modules/details/model/market_chart_view_data.dart';
 import 'package:everest_flutter_crypto_tests/modules/details/widgets/crypto_infomation_row.dart';
 import 'package:everest_flutter_crypto_tests/modules/details/widgets/crypto_information.dart';
 import 'package:flutter/material.dart';

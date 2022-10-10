@@ -28,14 +28,13 @@ class ExchangeBody extends HookConsumerWidget {
             .toList();
         String selectedCrypto = cryptoList[0].symbol.toUpperCase();
         return Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 20,
-            horizontal: 20,
-          ),
+          key: const Key('mainPadding'),
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
+                key: const Key('exchangeTitle'),
                 AppLocalizations.of(context)!.exchangeTitle,
                 style: kTitle2TextStyle,
               ),

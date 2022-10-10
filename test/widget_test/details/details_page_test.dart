@@ -1,5 +1,4 @@
 import 'package:everest_flutter_crypto_tests/l10n/app_localizations_en.dart';
-import 'package:everest_flutter_crypto_tests/modules/details/controllers/providers.dart';
 import 'package:everest_flutter_crypto_tests/modules/details/views/details_page.dart';
 import 'package:everest_flutter_crypto_tests/modules/details/views/details_screen.dart';
 import 'package:everest_flutter_crypto_tests/shared/widgets/default_appbar.dart';

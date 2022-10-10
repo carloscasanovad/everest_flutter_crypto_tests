@@ -17,7 +17,8 @@ void main() {
         ExchangeArguments exchangeArguments =
             FakeData.createExchangeArguments();
         String selectedCrypto = '';
-        List<CryptoDataViewData> cryptoList = [];
+        List<CryptoDataViewData> cryptoList = [
+        ];
         String cryptoSymbol = exchangeArguments.crypto.symbol.toUpperCase();
 
         await loadPage(

@@ -25,6 +25,7 @@ class DetailsBody extends HookConsumerWidget {
             DetailsLineChart(marketChartData: data),
             LineChartListViewButtons(marketChartdata: data),
             CryptoInformation(
+                key: const Key('criptoInformation'),
                 marketChartData: data,
                 cryptoDataArguments: cryptoDataArguments),
           ],

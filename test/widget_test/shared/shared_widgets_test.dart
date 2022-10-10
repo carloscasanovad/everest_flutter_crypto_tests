@@ -1,12 +1,14 @@
+import 'package:everest_flutter_crypto_tests/modules/wallet/views/wallet_page.dart';
 import 'package:everest_flutter_crypto_tests/shared/constants/app_colors.dart';
 import 'package:everest_flutter_crypto_tests/shared/widgets/bottom_nav_bar.dart';
 import 'package:everest_flutter_crypto_tests/shared/widgets/default_appbar.dart';
+import 'package:everest_flutter_crypto_tests/shared/widgets/default_error_widget.dart';
 import 'package:everest_flutter_crypto_tests/shared/widgets/default_loading_spinner.dart';
+import 'package:everest_flutter_crypto_tests/shared/widgets/default_page_route.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import '../../helpers/setup_widget_tester.dart';
 
 class Counter {
@@ -46,7 +48,7 @@ void main() {
   group("BottomNavbar Test", () {
     testWidgets("WHEN using BottomNavBar, THEN ensure that some widgets exists",
         (WidgetTester tester) async {
-      await loadPage(tester, const BottomNavBar());
+      await loadPage(tester, BottomNavBar(index: 0));
 
       final bottomNavBar = tester
           .widget<BottomNavigationBar>(find.byKey(const Key('bottomNavBar')));
@@ -66,5 +68,23 @@ void main() {
       expect(loadingSpinner.color, kDefaultRed);
       expect(loadingSpinner.size, 50);
     });
+  });
+  group("DefaultErrorWidget Test", () {
+    testWidgets(
+        "WHEN using DefaultErrorWidget, THEN ensure that some widgets exists",
+        (WidgetTester tester) async {
+      await loadPage(tester, const DefaultErrorWidget());
+
+      expect(find.byType(Center), findsOneWidget);
+      expect(find.byKey(const Key('lottie')), findsOneWidget);
+    });
+  });
+
+  group("DefaultPageRoute Test", () {
+    test(
+        'WHEN using DefaultPage route, THEN make sure that some widget are being used',
+        () async {
+          
+        });
   });
 }

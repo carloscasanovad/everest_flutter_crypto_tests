@@ -10,6 +10,7 @@ class DefaultErrorWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Lottie.network(
+          key: const Key('lottie'),
           'https://assets3.lottiefiles.com/packages/lf20_debgr4jk.json'),
     );
   }

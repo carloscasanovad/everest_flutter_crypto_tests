@@ -26,6 +26,7 @@ class WalletScreen extends HookConsumerWidget {
         }).toList();
 
         return SafeArea(
+          key: const Key('walletSafeArea'),
           child: Column(
             children: <Widget>[
               Header(userCryptoWallet: userCryptoWallet),

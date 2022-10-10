@@ -27,9 +27,12 @@ void main() {
 
       final appBarIcon =
           tester.widget<Icon>(find.byKey(const Key('appBarIcon')));
-
       expect(appBarIcon.color, kDefaultBlack);
       expect(appBarIcon.icon, Icons.arrow_back_ios);
+
+      await tester.tap(find.byType(IconButton));
+      await tester.pumpAndSettle();
+      
     },
   );
 }

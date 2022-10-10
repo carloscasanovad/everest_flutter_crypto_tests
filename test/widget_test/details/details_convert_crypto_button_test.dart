@@ -1,6 +1,5 @@
 import 'package:everest_flutter_crypto_tests/l10n/app_localizations_en.dart';
 import 'package:everest_flutter_crypto_tests/modules/details/widgets/convert_crypto_button.dart';
-import 'package:everest_flutter_crypto_tests/modules/details/widgets/details_header.dart';
 import 'package:everest_flutter_crypto_tests/modules/exchange/views/exchange_page.dart';
 import 'package:everest_flutter_crypto_tests/shared/constants/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -47,6 +46,12 @@ void main() {
             RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8.0),
                 side: const BorderSide(color: kDefaultRed)));
+
+        await tester.tap(find.byType(MaterialButton));
+
+        await tester.pumpAndSettle();
+
+        expect(find.byType(ExchangePage), findsOneWidget);
       });
     },
   );

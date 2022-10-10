@@ -1,3 +1,4 @@
+import 'package:everest_flutter_crypto_tests/modules/details/views/details_page.dart';
 import 'package:everest_flutter_crypto_tests/modules/wallet/model/crypto_data_view_data.dart';
 import 'package:everest_flutter_crypto_tests/modules/wallet/widgets/crypto_list_tile.dart';
 import 'package:faker/faker.dart';
@@ -10,7 +11,7 @@ import '../../helpers/fake_data.dart';
 import '../../helpers/setup_widget_tester.dart';
 
 void main() {
-  group("WalletPage/Body Test", () {
+  group("CryptoListTile Test", () {
     testWidgets(
         "WHEN CryptoListTile is created, THEN ensure that given data is being used on the widget",
         (WidgetTester tester) async {
@@ -42,6 +43,12 @@ void main() {
         expect(userCryptoBalance.data, 'R\$ ${formater.format(cryptoBalance)}');
         expect(userCryptoBalanceExchanged.data,
             '${cryptoBalanceExchanged.toStringAsFixed(2)} ${crypto.symbol.toUpperCase()}');
+
+        await tester.tap(find.byType(IconButton));
+
+        await tester.pumpAndSettle();
+
+        expect(find.byType(DetailsPage), findsOneWidget);
       });
     });
   });
