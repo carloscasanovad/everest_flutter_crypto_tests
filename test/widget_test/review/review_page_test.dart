@@ -1,6 +1,9 @@
 import 'package:everest_flutter_crypto_tests/l10n/app_localizations_en.dart';
+import 'package:everest_flutter_crypto_tests/modules/details/views/details_page.dart';
+import 'package:everest_flutter_crypto_tests/modules/exchange/views/exchange_page.dart';
 import 'package:everest_flutter_crypto_tests/modules/review/views/review_page.dart';
 import 'package:everest_flutter_crypto_tests/modules/review/widgets/body_review_page.dart';
+import 'package:everest_flutter_crypto_tests/modules/sucess/sucess_page.dart';
 import 'package:everest_flutter_crypto_tests/shared/widgets/default_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';

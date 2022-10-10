@@ -2,6 +2,7 @@ import 'package:everest_flutter_crypto_tests/l10n/app_localizations_en.dart';
 import 'package:everest_flutter_crypto_tests/modules/exchange/model/exchange_arguments.dart';
 import 'package:everest_flutter_crypto_tests/modules/exchange/widgets/exchange_custom_app_bar.dart';
 import 'package:everest_flutter_crypto_tests/modules/exchange/widgets/exchange_form_field_widget.dart';
+import 'package:everest_flutter_crypto_tests/modules/wallet/model/crypto_data_view_data.dart';
 import 'package:everest_flutter_crypto_tests/shared/constants/app_colors.dart';
 import 'package:everest_flutter_crypto_tests/shared/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,16 @@ void main() {
     (WidgetTester tester) async {
       final formater = NumberFormat("#,##0.00", "pt");
       double moneyToChange = 0;
-      ExchangeArguments args = FakeData.createExchangeArguments();
+      ExchangeArguments args = ExchangeArguments(
+          crypto: CryptoDataViewData(
+              id: '',
+              symbol: '',
+              name: '',
+              image: '',
+              current_price: 2,
+              market_cap_change_percentage_24h: 2),
+          cryptoBalance: 3,
+          cryptoValue: 3);
       await loadPage(
           tester,
           ExchangeFormFieldWidget(
@@ -35,6 +45,7 @@ void main() {
       expect(textField.keyboardType, TextInputType.number);
       expect(textField.style!.fontSize, 28);
       expect(textField.decoration!.isDense, true);
+      expect(textField.onChanged, isNotNull);
       expect(
           textField.decoration!.prefixIconConstraints!.hasBoundedHeight, false);
       expect(
@@ -52,6 +63,10 @@ void main() {
       expect(textHelper.style!.fontWeight, FontWeight.bold);
 
       expect(find.byType(SizedBox), findsWidgets);
+
+      // expect(find.byKey(const Key('floatingButton')), findsOneWidget);
+
+      // await tester.enterText(find.byType(TextFormField), '2');
     },
   );
 }
