@@ -1,3 +1,4 @@
+import 'package:everest_flutter_crypto_tests/l10n/app_localizations.dart';
 import 'package:everest_flutter_crypto_tests/modules/transactions/widgets/list_tile_transactions.dart';
 import 'package:everest_flutter_crypto_tests/modules/transactions/widgets/list_view_transactions.dart';
 import 'package:everest_flutter_crypto_tests/modules/transactions/widgets/transaction_modal_details.dart';
@@ -21,6 +22,7 @@ void main() {
           ));
 
       await tester.pumpAndSettle();
+
       expect(find.byType(ListView), findsOneWidget);
       expect(find.byType(ListTileTransactions), findsOneWidget);
     },
