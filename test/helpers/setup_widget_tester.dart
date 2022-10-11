@@ -2,6 +2,7 @@ import 'package:everest_flutter_crypto_tests/l10n/app_localizations.dart';
 import 'package:everest_flutter_crypto_tests/modules/details/controllers/providers.dart';
 import 'package:everest_flutter_crypto_tests/modules/details/model/market_chart_view_data.dart';
 import 'package:everest_flutter_crypto_tests/modules/details/repositories/market_chart_repository_provider.dart';
+import 'package:everest_flutter_crypto_tests/modules/details/useCase/get_crypto_market_chart_useCase.dart';
 import 'package:everest_flutter_crypto_tests/modules/exchange/controllers/provider.dart';
 import 'package:everest_flutter_crypto_tests/modules/wallet/controllers/providers.dart';
 import 'package:everest_flutter_crypto_tests/shared/routes/routes.dart';
@@ -23,9 +24,26 @@ class SetupWidgetTester extends StatelessWidget {
     final ableToExchangeProviderTest = StateProvider<bool>(
       (ref) => true,
     );
+    final getMarketChartDataProviderTest = Provider((ref) {
+      return GetCryptoMarketChartUseCase(
+        repository: FakeMarketChartRepository(),
+      );
+    });
+
+    final marketChartDataProviderTest =
+        FutureProvider.autoDispose.family<MarketChartViewData, dynamic>(
+      ((ref, args) async {
+        return await ref.read(getMarketChartDataProvider).start(args);
+      }),
+    );
+
     return ProviderScope(
       overrides: [
         getCryptosDataProvider.overrideWithProvider(getFakeCryptoData),
+        getMarketChartDataProvider
+            .overrideWithProvider(getMarketChartDataProviderTest),
+        marketChartDataProvider
+            .overrideWithProvider(marketChartDataProviderTest),
         ableToExchangeProvider.overrideWithProvider(ableToExchangeProviderTest)
       ],
       child: MaterialApp(

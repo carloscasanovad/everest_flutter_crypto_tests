@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:everest_flutter_crypto_tests/modules/details/mapper/market_chart_mapper.dart';
 import 'package:everest_flutter_crypto_tests/modules/details/model/crypto_data_arguments.dart';
 import 'package:everest_flutter_crypto_tests/modules/details/model/market_chart_view_data.dart';
 import 'package:everest_flutter_crypto_tests/modules/details/repositories/market_chart_repository.dart';
@@ -16,6 +17,7 @@ import 'package:everest_flutter_crypto_tests/shared/api/crypto_base_endpoint.dar
 import 'package:everest_flutter_crypto_tests/shared/api/model/crypto_data_response.dart';
 import 'package:everest_flutter_crypto_tests/shared/api/model/market_data_response.dart';
 import 'package:faker/faker.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class FakeData {
   static CryptoDataViewData createCryptoViewData() {
@@ -129,6 +131,39 @@ class FakeCryptoDataRepository implements GetCryptosDataUseCase {
   }
 
   @override
-  // TODO: implement repository
   CryptoDataRepository get repository => throw UnimplementedError();
+}
+
+class FakeMarketChartRepository implements MarketChartRepository {
+  @override
+  Future<MarketDataResponse> getCryptoMarketData(String crypto) async {
+    final response = await Future.delayed(const Duration(seconds: 1), () {
+      return MarketDataResponse([
+        [0, 1],
+        [1, 0],
+        [0, 1],
+        [1, 0],
+        [0, 1],
+        [1, 0],
+        [0, 1],
+        [1, 0],
+      ]);
+    });
+    return response;
+  }
+
+  @override
+  CryptoBaseEndpoint get baseEndPoint => throw UnimplementedError();
+}
+
+class FakeGetCryptoMarketChartUseCase implements GetCryptoMarketChartUseCase {
+  @override
+  Future<MarketChartViewData> start(String crypto) async {
+    final response =
+        await FakeMarketChartRepository().getCryptoMarketData(crypto);
+    return response.toViewMarketChartData();
+  }
+
+  @override
+  FakeMarketChartRepository get repository => throw UnimplementedError();
 }

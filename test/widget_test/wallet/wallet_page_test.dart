@@ -3,6 +3,7 @@ import 'package:everest_flutter_crypto_tests/modules/transactions/views/transact
 import 'package:everest_flutter_crypto_tests/modules/wallet/views/wallet_page.dart';
 import 'package:everest_flutter_crypto_tests/modules/wallet/views/wallet_screen.dart';
 import 'package:everest_flutter_crypto_tests/shared/widgets/bottom_nav_bar.dart';
+import 'package:everest_flutter_crypto_tests/shared/widgets/default_loading_spinner.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:network_image_mock/network_image_mock.dart';
 import '../../helpers/setup_widget_tester.dart';
@@ -14,7 +15,12 @@ void main() {
     mockNetworkImagesFor(() async {
       await loadPage(tester, const WalletPage());
 
+      expect(find.byType(DefaultLoadingSpinner), findsOneWidget);
+
       await tester.pumpAndSettle();
+
+      expect(find.byType(DefaultLoadingSpinner), findsNothing);
+      expect(find.byType(DefaultLoadingSpinner), findsNothing);
 
       expect(find.byType(WalletScreen), findsOneWidget);
       expect(find.byType(BottomNavBar), findsOneWidget);

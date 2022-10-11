@@ -67,6 +67,8 @@ void main() {
           .widget<SpinKitFadingCube>(find.byKey(const Key('loadingSpinner')));
       expect(loadingSpinner.color, kDefaultRed);
       expect(loadingSpinner.size, 50);
+
+      expect(find.byKey(const Key("centerSpinner")), findsOneWidget);
     });
   });
   group("DefaultErrorWidget Test", () {
@@ -83,8 +85,6 @@ void main() {
   group("DefaultPageRoute Test", () {
     test(
         'WHEN using DefaultPage route, THEN make sure that some widget are being used',
-        () async {
-          
-        });
+        () async {});
   });
 }

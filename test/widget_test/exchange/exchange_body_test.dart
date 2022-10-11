@@ -4,6 +4,7 @@ import 'package:everest_flutter_crypto_tests/modules/exchange/widgets/dropdown_b
 import 'package:everest_flutter_crypto_tests/modules/exchange/widgets/exchange_body.dart';
 import 'package:everest_flutter_crypto_tests/modules/exchange/widgets/exchange_form_field_widget.dart';
 import 'package:everest_flutter_crypto_tests/shared/constants/app_text_styles.dart';
+import 'package:everest_flutter_crypto_tests/shared/widgets/default_loading_spinner.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:network_image_mock/network_image_mock.dart';
@@ -20,7 +21,13 @@ void main() {
             FakeData.createExchangeArguments();
         await loadPage(
             tester, ExchangeBody(exchangeArguments: exchangeArguments));
+
+        expect(find.byType(DefaultLoadingSpinner), findsOneWidget);
+
         await tester.pumpAndSettle();
+
+        expect(find.byType(DefaultLoadingSpinner), findsNothing);
+
         expect(find.byType(CircularProgressIndicator), findsNothing);
         expect(find.byType(Padding), findsWidgets);
         expect(find.byType(SizedBox), findsWidgets);

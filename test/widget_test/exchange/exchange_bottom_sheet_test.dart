@@ -36,7 +36,7 @@ void main() {
         final floatingActionButtonChild =
             tester.widget<Icon>(find.byKey(const Key('floatingButtonIcon')));
 
-        expect(floatingActionButton.backgroundColor, kDefaultSoftGrey);
+        expect(floatingActionButton.backgroundColor, kDefaultRed);
         expect(floatingActionButton.isExtended, true);
         expect(floatingActionButtonChild.icon, Icons.arrow_forward_ios);
       });
