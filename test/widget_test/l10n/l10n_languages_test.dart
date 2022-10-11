@@ -1,5 +1,4 @@
 import 'package:everest_flutter_crypto_tests/l10n/app_localizations.dart';
-import 'package:everest_flutter_crypto_tests/l10n/app_localizations_es.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import '../../helpers/l10n_setup_widget_tester.dart';
@@ -9,9 +8,7 @@ void main() {
   test('WHEN appLocalizations call shouldReload, THEN expect a false value',
       () {
     expect(
-        AppLocalizations.delegate.shouldReload.call(
-          AppLocalizations.delegate,
-        ),
+        AppLocalizations.delegate.shouldReload.call(AppLocalizations.delegate),
         false);
   });
 

@@ -7,14 +7,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:network_image_mock/network_image_mock.dart';
 
 import '../../helpers/fake_data.dart';
-import '../../helpers/setup_widget_tester.dart';
+import '../../helpers/setup_widget_tester_with_providers.dart';
 
 void main() {
   testWidgets(
     'WHEN detailsPage is created, THEN find main widgets',
     (WidgetTester tester) async {
       mockNetworkImagesFor(() async {
-        await loadPage(
+        await loadPageWithProviders(
             tester,
             DetailsPage(
                 cryptoDataArguments: FakeData.createCryptoDataArguments()));
@@ -22,6 +22,7 @@ void main() {
         await tester.pumpAndSettle();
 
         expect(find.byType(Scaffold), findsOneWidget);
+        expect(find.byType(DetailsScreen), findsOneWidget);
         final detailsAppBar =
             tester.widget<DefaultAppBar>(find.byType(DefaultAppBar));
         expect(detailsAppBar.icon, Icons.arrow_back_ios_new_outlined);
