@@ -1,4 +1,3 @@
-import 'package:everest_flutter_crypto_tests/modules/details/views/details_page.dart';
 import 'package:everest_flutter_crypto_tests/modules/exchange/views/exchange_page.dart';
 import 'package:everest_flutter_crypto_tests/modules/exchange/widgets/bottom_sheet_widget.dart';
 import 'package:everest_flutter_crypto_tests/modules/exchange/widgets/exchange_body.dart';
@@ -10,14 +9,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:network_image_mock/network_image_mock.dart';
 
 import '../../helpers/fake_data.dart';
-import '../../helpers/setup_widget_tester.dart';
+import '../../helpers/setup_widget_tester_with_providers.dart';
 
 void main() {
   testWidgets(
     'WHEN ExchangePage is built, THEN ensure that appBar, body and bottomSheet exists',
     (WidgetTester tester) async {
       mockNetworkImagesFor(() async {
-        await loadPage(
+        await loadPageWithProviders(
             tester,
             ExchangePage(
                 exchangeArguments: FakeData.createExchangeArguments()));

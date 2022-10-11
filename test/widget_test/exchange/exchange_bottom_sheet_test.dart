@@ -1,6 +1,5 @@
 import 'package:everest_flutter_crypto_tests/l10n/app_localizations_en.dart';
 import 'package:everest_flutter_crypto_tests/modules/exchange/widgets/bottom_sheet_widget.dart';
-import 'package:everest_flutter_crypto_tests/modules/review/views/review_page.dart';
 import 'package:everest_flutter_crypto_tests/shared/constants/app_colors.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
@@ -8,14 +7,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:network_image_mock/network_image_mock.dart';
 
 import '../../helpers/fake_data.dart';
-import '../../helpers/setup_widget_tester.dart';
+import '../../helpers/setup_widget_tester_with_providers.dart';
 
 void main() {
   testWidgets(
     'WHEN bottomSheetWidget is created, THEN validate the main container padding and floatingActionButton',
     (WidgetTester tester) async {
       mockNetworkImagesFor(() async {
-        await loadPage(
+        await loadPageWithProviders(
             tester,
             BottomSheetWidget(
               cryptoBalance: faker.currency.random.decimal(scale: 15, min: 1),

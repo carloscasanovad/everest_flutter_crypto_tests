@@ -10,7 +10,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:network_image_mock/network_image_mock.dart';
 
 import '../../helpers/fake_data.dart';
-import '../../helpers/setup_widget_tester.dart';
+import '../../helpers/setup_widget_tester_with_providers.dart';
 
 void main() {
   testWidgets(
@@ -19,7 +19,7 @@ void main() {
       mockNetworkImagesFor(() async {
         ExchangeArguments exchangeArguments =
             FakeData.createExchangeArguments();
-        await loadPage(
+        await loadPageWithProviders(
             tester, ExchangeBody(exchangeArguments: exchangeArguments));
 
         expect(find.byType(DefaultLoadingSpinner), findsOneWidget);
