@@ -1,6 +1,4 @@
-import 'package:everest_flutter_crypto_tests/l10n/app_localizations_en.dart';
 import 'package:everest_flutter_crypto_tests/modules/exchange/model/exchange_arguments.dart';
-import 'package:everest_flutter_crypto_tests/modules/exchange/widgets/exchange_custom_app_bar.dart';
 import 'package:everest_flutter_crypto_tests/modules/exchange/widgets/exchange_form_field_widget.dart';
 import 'package:everest_flutter_crypto_tests/modules/wallet/model/crypto_data_view_data.dart';
 import 'package:everest_flutter_crypto_tests/shared/constants/app_colors.dart';
@@ -9,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:intl/intl.dart';
 
-import '../../helpers/fake_data.dart';
 import '../../helpers/setup_widget_tester.dart';
 
 void main() {
@@ -64,9 +61,7 @@ void main() {
 
       expect(find.byType(SizedBox), findsWidgets);
 
-      // expect(find.byKey(const Key('floatingButton')), findsOneWidget);
-
-      // await tester.enterText(find.byType(TextFormField), '2');
+      await tester.tap(find.byType(TextFormField));
     },
   );
 }

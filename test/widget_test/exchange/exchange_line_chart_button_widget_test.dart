@@ -29,6 +29,10 @@ void main() {
       expect(lineChartButton.padding!.horizontal, 2);
       expect(lineChartButton.padding!.vertical, 2);
       expect(lineChartButton.color, kDefaultFlowButtonColor);
+
+      await tester.tap(find.byType(MaterialButton));
+
+      await tester.pumpAndSettle();
     },
   );
 }

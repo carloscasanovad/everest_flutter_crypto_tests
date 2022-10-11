@@ -23,10 +23,15 @@ void main() {
 
         expect(find.byType(Scaffold), findsOneWidget);
         expect(find.byType(DetailsScreen), findsOneWidget);
+
         final detailsAppBar =
             tester.widget<DefaultAppBar>(find.byType(DefaultAppBar));
         expect(detailsAppBar.icon, Icons.arrow_back_ios_new_outlined);
         expect(detailsAppBar.title, AppLocalizationsEn().details);
+
+        await tester.tap(find.byType(IconButton));
+
+        await tester.pumpAndSettle();
       });
     },
   );
