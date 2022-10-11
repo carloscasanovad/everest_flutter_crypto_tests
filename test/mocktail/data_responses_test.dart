@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:everest_flutter_crypto_tests/shared/api/model/crypto_data_response.dart';
 import 'package:everest_flutter_crypto_tests/shared/api/model/market_data_response.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -25,13 +27,16 @@ void main() {
     });
   });
   group('MarketData response', () {
-    test(
-        'WHEN MarketDataResponse is send it toJson, then ensure that the response is the same',
-        () async {
-      MarketDataResponse response = MarketDataResponse([
+    late MarketDataResponse response;
+    setUp(() {
+      response = MarketDataResponse([
         [0, 1],
         [0, 2]
       ]);
+    });
+    test(
+        'WHEN MarketDataResponse is send it toJson, then ensure that the response is the same',
+        () async {
       expect(response.toJson(), {
         'prices': [
           [0, 1],

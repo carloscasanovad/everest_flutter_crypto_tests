@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:everest_flutter_crypto_tests/modules/wallet/model/crypto_data_view_data.dart';
-import 'package:everest_flutter_crypto_tests/modules/wallet/model/user_wallet_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

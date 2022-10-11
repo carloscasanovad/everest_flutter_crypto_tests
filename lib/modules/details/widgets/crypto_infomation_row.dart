@@ -23,7 +23,7 @@ class CryptoInformationRow extends StatelessWidget {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Expanded(
                 child: Text(
@@ -34,6 +34,7 @@ class CryptoInformationRow extends StatelessWidget {
                 child: Text(
               value,
               style: kDetailsCryptoInfoValueStyle,
+              textAlign: TextAlign.end,
             )),
           ],
         ),
