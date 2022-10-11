@@ -26,7 +26,6 @@ void main() {
             tester.widget<DefaultAppBar>(find.byType(DefaultAppBar));
         expect(detailsAppBar.icon, Icons.arrow_back_ios_new_outlined);
         expect(detailsAppBar.title, AppLocalizationsEn().details);
-        expect(find.byType(DetailsScreen), findsOneWidget);
       });
     },
   );

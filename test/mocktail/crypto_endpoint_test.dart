@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:everest_flutter_crypto_tests/modules/wallet/repositories/crypto_data_repository.dart';
 import 'package:everest_flutter_crypto_tests/shared/api/crypto_base_endpoint.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -9,10 +10,10 @@ import '../helpers/api_factory.dart';
 class DioMock extends Mock implements Dio {}
 
 void main() {
-  late Response<List<Map<String, dynamic>>> dataResponseSucess;
-  late Response<Map<String, dynamic>> marketResponseSucess;
   late DioMock dioMock;
   late CryptoBaseEndpoint cryptoBaseEndpoint;
+  late Response<List<Map<String, dynamic>>> dataResponseSucess;
+  late Response<Map<String, dynamic>> marketResponseSucess;
 
   When mockGetResponse() => when(
       () => dioMock.get(any(), queryParameters: any(named: 'queryParameters')));

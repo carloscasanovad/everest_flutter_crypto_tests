@@ -1,10 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:everest_flutter_crypto_tests/modules/wallet/model/crypto_data_view_data.dart';
 import 'package:everest_flutter_crypto_tests/modules/wallet/repositories/crypto_data_repository.dart';
 import 'package:everest_flutter_crypto_tests/shared/api/crypto_base_endpoint.dart';
-import 'package:everest_flutter_crypto_tests/shared/api/model/crypto_data_response.dart';
 import 'package:faker/faker.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import '../helpers/api_factory.dart';

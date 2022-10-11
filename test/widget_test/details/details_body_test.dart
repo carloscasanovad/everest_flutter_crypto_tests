@@ -1,3 +1,4 @@
+import 'package:everest_flutter_crypto_tests/modules/details/model/market_chart_view_data.dart';
 import 'package:everest_flutter_crypto_tests/modules/details/widgets/crypto_information.dart';
 import 'package:everest_flutter_crypto_tests/modules/details/widgets/details_body.dart';
 import 'package:everest_flutter_crypto_tests/modules/details/widgets/details_line_chart.dart';
@@ -18,14 +19,19 @@ void main() {
         await loadPage(
             tester,
             DetailsBody(
-                cryptoDataArguments: FakeData.createCryptoDataArguments()));
-        expect(find.byType(DefaultLoadingSpinner), findsOneWidget);
+              cryptoDataArguments: FakeData.createCryptoDataArguments(),
+              data: MarketChartViewData(prices: [
+                [0, 1],
+                [0, 1],
+                [0, 1],
+                [0, 1],
+                [0, 1],
+                [0, 1]
+              ]),
+            ));
 
         await tester.pumpAndSettle();
 
-        expect(find.byType(DefaultLoadingSpinner), findsNothing);
-
-        expect(find.byType(Column), findsWidgets);
         expect(find.byType(DetailsLineChart), findsOneWidget);
         expect(find.byType(LineChartListViewButtons), findsOneWidget);
         expect(find.byType(CryptoInformation), findsOneWidget);
