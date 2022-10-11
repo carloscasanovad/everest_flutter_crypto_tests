@@ -37,6 +37,7 @@ void main() {
     test(
         'WHEN MarketDataResponse is send it toJson, then ensure that the response is the same',
         () async {
+      expect(response.toString().isEmpty, false);
       expect(response.toJson(), {
         'prices': [
           [0, 1],

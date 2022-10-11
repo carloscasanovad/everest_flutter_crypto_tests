@@ -5,11 +5,14 @@ import 'package:intl/intl.dart';
 
 import '../../../shared/constants/app_colors.dart';
 import '../../../shared/controllers/user_transaction_notifier.dart';
+import '../model/transactions_model.dart';
 import 'list_tile_transactions.dart';
 
 class ListViewTransactions extends ConsumerStatefulWidget {
-  const ListViewTransactions({
+  List<TransactionsModel> userTransactions;
+  ListViewTransactions({
     super.key,
+    required this.userTransactions,
   });
 
   @override
@@ -26,12 +29,11 @@ class _ListViewTransactionsState extends ConsumerState<ListViewTransactions> {
 
   @override
   Widget build(BuildContext context) {
-    final userTransactions = ref.watch(movementsProvider);
     return ListView.separated(
       key: const Key('listViewTransactions'),
-      itemCount: userTransactions.length,
+      itemCount: widget.userTransactions.length,
       itemBuilder: (BuildContext context, int index) {
-        var userTransaction = userTransactions[index];
+        var userTransaction = widget.userTransactions[index];
         String formattedDate =
             DateFormat.yMd('pt-br').format(userTransaction.date);
 

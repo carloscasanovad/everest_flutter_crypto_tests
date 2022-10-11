@@ -11,10 +11,18 @@ void main() {
   testWidgets(
     'WHEN tapped on ListView of TransactionsPage, THEN find ListView',
     (WidgetTester tester) async {
-      await loadPage(tester, const ListViewTransactions());
+      final userTransactions = [
+        FakeData.createTransactionModel(),
+      ];
+      await loadPage(
+          tester,
+          ListViewTransactions(
+            userTransactions: userTransactions,
+          ));
 
       await tester.pumpAndSettle();
       expect(find.byType(ListView), findsOneWidget);
+      expect(find.byType(ListTileTransactions), findsOneWidget);
     },
   );
   testWidgets(
