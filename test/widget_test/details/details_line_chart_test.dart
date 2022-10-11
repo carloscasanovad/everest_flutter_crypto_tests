@@ -31,7 +31,8 @@ void main() {
       expect(exchangeLineChart.gridData.show, true);
       expect(exchangeLineChart.gridData.drawHorizontalLine, false);
       expect(exchangeLineChart.gridData.drawVerticalLine, false);
-
+      expect(exchangeLineChart.gridData.getDrawingHorizontalLine.call(1),
+          FlLine(color: const Color(0xff37434d), strokeWidth: 1.0));
       expect(find.byType(LineChart), findsOneWidget);
       expect(find.byType(Column), findsWidgets);
     },

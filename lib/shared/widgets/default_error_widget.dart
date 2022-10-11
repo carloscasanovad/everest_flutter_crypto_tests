@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 class DefaultErrorWidget extends StatelessWidget {
-  const DefaultErrorWidget({
-    Key? key,
-  }) : super(key: key);
+  const DefaultErrorWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

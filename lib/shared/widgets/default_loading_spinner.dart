@@ -5,8 +5,8 @@ import '../constants/app_colors.dart';
 
 class DefaultLoadingSpinner extends StatelessWidget {
   const DefaultLoadingSpinner({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -1,10 +1,8 @@
-import 'package:everest_flutter_crypto_tests/modules/wallet/views/wallet_page.dart';
 import 'package:everest_flutter_crypto_tests/shared/constants/app_colors.dart';
 import 'package:everest_flutter_crypto_tests/shared/widgets/bottom_nav_bar.dart';
 import 'package:everest_flutter_crypto_tests/shared/widgets/default_appbar.dart';
 import 'package:everest_flutter_crypto_tests/shared/widgets/default_error_widget.dart';
 import 'package:everest_flutter_crypto_tests/shared/widgets/default_loading_spinner.dart';
-import 'package:everest_flutter_crypto_tests/shared/widgets/default_page_route.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -80,11 +78,5 @@ void main() {
       expect(find.byType(Center), findsOneWidget);
       expect(find.byKey(const Key('lottie')), findsOneWidget);
     });
-  });
-
-  group("DefaultPageRoute Test", () {
-    test(
-        'WHEN using DefaultPage route, THEN make sure that some widget are being used',
-        () async {});
   });
 }

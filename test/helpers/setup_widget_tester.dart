@@ -24,17 +24,10 @@ class SetupWidgetTester extends StatelessWidget {
     final ableToExchangeProviderTest = StateProvider<bool>(
       (ref) => true,
     );
-    // final getMarketChartDataProviderTest = Provider((ref) {
-    //   return GetCryptoMarketChartUseCase(
-    //     repository: FakeMarketChartRepository(),
-    //   );
-    // });
 
     return ProviderScope(
       overrides: [
         getCryptosDataProvider.overrideWithProvider(getFakeCryptoData),
-        // getMarketChartDataProvider
-        //     .overrideWithProvider(getMarketChartDataProviderTest),
         ableToExchangeProvider.overrideWithProvider(ableToExchangeProviderTest)
       ],
       child: MaterialApp(
