@@ -35,7 +35,6 @@ class UserBalance extends StatelessWidget implements PreferredSizeWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Expanded(
-              flex: 2,
               child: Text(
                 AppLocalizations.of(context)!.totalBalance,
                 style: kDefaultGreyParagraphStyle,
@@ -44,6 +43,7 @@ class UserBalance extends StatelessWidget implements PreferredSizeWidget {
             Expanded(
               child: Text(
                 '$userCyptoBalance $cryptoSymbol',
+                textAlign: TextAlign.end,
                 style: kDefaultParagraphStyle,
               ),
             ),

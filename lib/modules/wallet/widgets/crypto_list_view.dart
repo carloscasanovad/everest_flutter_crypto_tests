@@ -3,9 +3,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../shared/widgets/default_error_widget.dart';
 import '../../../shared/widgets/default_loading_spinner.dart';
+import '../controllers/providers.dart';
 import '../model/crypto_data_view_data.dart';
 import '../model/user_wallet_model.dart';
-import '../controllers/providers.dart';
 import 'crypto_list_tile.dart';
 
 class CryptoListView extends HookConsumerWidget {
@@ -20,23 +20,21 @@ class CryptoListView extends HookConsumerWidget {
     return cryptoData.when(
       data: (data) {
         final cryptoData = data.cryptoListDataView;
-        return Expanded(
-          child: ListView.builder(
-            shrinkWrap: true,
-            physics: const AlwaysScrollableScrollPhysics(
-              parent: ScrollPhysics(),
-            ),
-            itemCount: cryptoData.length,
-            itemBuilder: (context, index) {
-              CryptoDataViewData crypto = cryptoData[index];
-              return Card(
-                child: CryptoListTile(
-                  crypto: crypto,
-                  cryptoBalance: userCryptoWallet[index].userCryptoBalance,
-                ),
-              );
-            },
+        return ListView.builder(
+          shrinkWrap: true,
+          physics: const AlwaysScrollableScrollPhysics(
+            parent: ScrollPhysics(),
           ),
+          itemCount: cryptoData.length,
+          itemBuilder: (context, index) {
+            CryptoDataViewData crypto = cryptoData[index];
+            return Card(
+              child: CryptoListTile(
+                crypto: crypto,
+                cryptoBalance: userCryptoWallet[index].userCryptoBalance,
+              ),
+            );
+          },
         );
       },
       error: (error, stackTrace) {

@@ -17,8 +17,7 @@ void main() {
         ExchangeArguments exchangeArguments =
             FakeData.createExchangeArguments();
         String selectedCrypto = '';
-        List<CryptoDataViewData> cryptoList = [
-        ];
+        List<CryptoDataViewData> cryptoList = [];
         String cryptoSymbol = exchangeArguments.crypto.symbol.toUpperCase();
 
         await loadPage(
@@ -33,6 +32,7 @@ void main() {
             find.byKey(const Key("cryptoBeingExchangeDropdown")));
         expect(cryptoBeingExchangeButton.value, cryptoSymbol);
         expect(cryptoBeingExchangeButton.items!.isNotEmpty, true);
+        expect(cryptoBeingExchangeButton.onChanged, null);
 
         final criptoLogo =
             tester.widget<Image>(find.byKey(const Key("criptoLogo")));

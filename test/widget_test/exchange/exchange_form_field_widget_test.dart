@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:intl/intl.dart';
 
+import '../../helpers/fake_data.dart';
 import '../../helpers/setup_widget_tester.dart';
 
 void main() {
@@ -29,7 +30,7 @@ void main() {
           tester,
           ExchangeFormFieldWidget(
             exchangeArguments: args,
-            cryptoList: [],
+            cryptoList: [FakeData.createCryptoViewData()],
           ));
       String cryptoSymbol = args.crypto.symbol.toUpperCase();
       await tester.pumpAndSettle();

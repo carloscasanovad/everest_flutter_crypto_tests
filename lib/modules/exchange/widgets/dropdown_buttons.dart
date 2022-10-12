@@ -76,7 +76,7 @@ class _DropDownItemsState extends ConsumerState<DropDownButtons> {
               ),
             ),
           ],
-          onChanged: (value) {},
+          onChanged: null,
         ),
         const Icon(
           key: Key('exchangeSwapIcon'),

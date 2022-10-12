@@ -30,7 +30,7 @@ class WalletScreen extends HookConsumerWidget {
           child: Column(
             children: <Widget>[
               Header(userCryptoWallet: userCryptoWallet),
-              CryptoListView(userCryptoWallet: userCryptoWallet),
+              Expanded(child: CryptoListView(userCryptoWallet: userCryptoWallet)),
             ],
           ),
         );
