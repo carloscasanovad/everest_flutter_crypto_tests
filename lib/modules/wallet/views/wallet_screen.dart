@@ -9,8 +9,8 @@ import '../widgets/header.dart';
 
 class WalletScreen extends HookConsumerWidget {
   const WalletScreen({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

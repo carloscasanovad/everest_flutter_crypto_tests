@@ -23,6 +23,10 @@ void main() {
     },
   );
 
+  test("WHEN cryptoModel has data, THEN ensure that it is not empty", () {
+    expect(cryptoModel.toString().isNotEmpty, true);
+  });
+
   test(
       'WHEN CryptoDataViewData.fromMap receives data, THEN ensure that the results are the given values',
       () {

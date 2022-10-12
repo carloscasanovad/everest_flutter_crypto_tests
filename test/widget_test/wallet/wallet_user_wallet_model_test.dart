@@ -17,7 +17,9 @@ void main() {
     },
   );
 
-  test('WHEN UserWallet.fromMap receives data, THEN ensure that the results are the given values', () {
+  test(
+      'WHEN UserWallet.fromMap receives data, THEN ensure that the results are the given values',
+      () {
     Map<String, dynamic> modelToMap = walletModel.toMap();
     UserWalletModel newWalletModel = UserWalletModel.fromMap(modelToMap);
 
@@ -25,11 +27,19 @@ void main() {
     expect(newWalletModel.userCryptoBalance, 100);
   });
 
-  test('WHEN UserWallet.toJson receives data, THEN ensure that the results are the given values', () {
+  test("WHEN walletModel has data, THEN ensure that it is not empty", () {
+    expect(walletModel.toString().isNotEmpty, true);
+  });
+
+  test(
+      'WHEN UserWallet.toJson receives data, THEN ensure that the results are the given values',
+      () {
     String jsonModel = walletModel.toJson();
     expect(jsonModel, jsonEncode(walletModel.toMap()));
   });
-  test('WHEN UserWallet.fromJson receives data, THEN ensure that the results are the given values', () {
+  test(
+      'WHEN UserWallet.fromJson receives data, THEN ensure that the results are the given values',
+      () {
     UserWalletModel newWalletModel =
         UserWalletModel.fromJson(walletModel.toJson());
     expect(newWalletModel.id, 'btc');

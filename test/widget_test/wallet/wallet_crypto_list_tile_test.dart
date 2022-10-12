@@ -11,16 +11,16 @@ import '../../helpers/fake_data.dart';
 import '../../helpers/setup_widget_tester.dart';
 
 void main() {
+  final formater = NumberFormat("#,##0.00", "pt");
+  CryptoDataViewData crypto = FakeData.createCryptoViewData();
+  double cryptoBalance = faker.currency.random.decimal(scale: 15, min: 1);
+  double cryptoBalanceExchanged = cryptoBalance / crypto.current_price;
+
   group("CryptoListTile Test", () {
     testWidgets(
         "WHEN CryptoListTile is created, THEN ensure that given data is being used on the widget",
         (WidgetTester tester) async {
       mockNetworkImagesFor(() async {
-        final formater = NumberFormat("#,##0.00", "pt");
-        CryptoDataViewData crypto = FakeData.createCryptoViewData();
-        double cryptoBalance = faker.currency.random.decimal(scale: 15, min: 1);
-        double cryptoBalanceExchanged = cryptoBalance / crypto.current_price;
-
         await loadPage(tester,
             CryptoListTile(crypto: crypto, cryptoBalance: cryptoBalance));
 
@@ -49,8 +49,27 @@ void main() {
         await tester.pumpAndSettle();
 
         expect(find.byType(DetailsPage), findsOneWidget);
-        
       });
     });
+  });
+
+  group('NavigatetoDetails CryptoListTile', () {
+    testWidgets(
+      "WHEN tap on the ListTile of CryptoLisTile, THEN navigate to DetailsPage",
+      (WidgetTester tester) async {
+        mockNetworkImagesFor(() async {
+          await loadPage(tester,
+              CryptoListTile(crypto: crypto, cryptoBalance: cryptoBalance));
+
+          await tester.pumpAndSettle();
+
+          await tester.tap(find.byType(ListTile));
+
+          await tester.pumpAndSettle();
+
+          expect(find.byType(DetailsPage), findsOneWidget);
+        });
+      },
+    );
   });
 }

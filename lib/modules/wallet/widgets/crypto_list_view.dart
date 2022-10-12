@@ -40,7 +40,6 @@ class CryptoListView extends HookConsumerWidget {
         );
       },
       error: (error, stackTrace) {
-        debugPrintStack(stackTrace: stackTrace);
         return const DefaultErrorWidget();
       },
       loading: () => const DefaultLoadingSpinner(),
