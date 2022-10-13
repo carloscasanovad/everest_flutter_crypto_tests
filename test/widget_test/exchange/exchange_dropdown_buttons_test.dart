@@ -52,6 +52,14 @@ void main() {
         expect(exchangeSwapIcon.size, 30);
 
         expect(find.text(cryptoSymbol), findsOneWidget);
+
+        final cryptoToExchangeDropdown = tester.widget<DropdownButton>(
+            find.byKey(const Key("cryptoToExchangeDropdown")));
+        expect(cryptoToExchangeDropdown.menuMaxHeight, 300);
+        expect(cryptoToExchangeDropdown.onChanged.toString().isNotEmpty, true);
+        await tester.tap(find.byKey(const Key("cryptoToExchangeDropdown")));
+
+        await tester.pumpAndSettle();
       });
     },
   );

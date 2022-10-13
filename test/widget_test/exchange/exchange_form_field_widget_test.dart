@@ -63,6 +63,14 @@ void main() {
       expect(find.byType(SizedBox), findsWidgets);
 
       await tester.tap(find.byType(TextFormField));
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextFormField), '4');
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byType(TextFormField));
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextFormField), '0');
+      await tester.pumpAndSettle();
     },
   );
 }

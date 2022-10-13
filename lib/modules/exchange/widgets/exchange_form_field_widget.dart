@@ -68,7 +68,6 @@ class _ExchangeFormFieldWidgetState
               Decimal formattedValue = RegexController.arrangeNumber(value);
               moneyToChange =
                   formattedValue.toDouble() * cryptoPrice.toDouble();
-
               handleOnChange(moneyToChange, true);
               if (formattedValue > userCyptoBalance) {
                 handleOnChange(0, false);
