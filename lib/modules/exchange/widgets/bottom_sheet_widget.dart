@@ -54,6 +54,7 @@ class BottomSheetWidget extends HookConsumerWidget {
                 height: 10,
               ),
               Text(
+                key: const Key('moneyToExchangeText'),
                 moneyToExchange != 0
                     ? '${estimatedValue.toStringAsFixed(6)} ${cryptoBeingExchangedData.symbol.toUpperCase()}'
                     : '',

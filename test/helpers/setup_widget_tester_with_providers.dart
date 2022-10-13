@@ -5,6 +5,7 @@ import 'package:everest_flutter_crypto_tests/modules/details/repositories/market
 import 'package:everest_flutter_crypto_tests/modules/details/useCase/get_crypto_market_chart_useCase.dart';
 import 'package:everest_flutter_crypto_tests/modules/exchange/controllers/provider.dart';
 import 'package:everest_flutter_crypto_tests/modules/wallet/controllers/providers.dart';
+import 'package:everest_flutter_crypto_tests/modules/wallet/model/crypto_data_view_data.dart';
 import 'package:everest_flutter_crypto_tests/shared/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -30,13 +31,27 @@ class SetupWidgetTesterWithProviders extends StatelessWidget {
         repository: FakeMarketChartRepository(),
       );
     });
-
     final marketChartDataProviderTest =
         FutureProvider.autoDispose.family<MarketChartViewData, dynamic>(
       ((ref, args) async {
         return await ref.read(getMarketChartDataProvider).start(args);
       }),
     );
+    final cryptoBeingExchangedDataProviderTest =
+        StateProvider<CryptoDataViewData>(
+      (ref) => CryptoDataViewData(
+        id: 'btc',
+        symbol: 'btc',
+        name: '',
+        image: '',
+        current_price: 5,
+        market_cap_change_percentage_24h: 5,
+      ),
+    );
+    final moneyToExchangeProviderTest = StateProvider<double>(
+      (ref) => 5,
+    );
+
     return ProviderScope(
       overrides: [
         getCryptosDataProvider.overrideWithProvider(getFakeCryptoData),
@@ -44,7 +59,11 @@ class SetupWidgetTesterWithProviders extends StatelessWidget {
             .overrideWithProvider(getMarketChartDataProviderTest),
         marketChartDataProvider
             .overrideWithProvider(marketChartDataProviderTest),
-        ableToExchangeProvider.overrideWithProvider(ableToExchangeProviderTest)
+        ableToExchangeProvider.overrideWithProvider(ableToExchangeProviderTest),
+        cryptoBeingExchangedDataProvider
+            .overrideWithProvider(cryptoBeingExchangedDataProviderTest),
+        moneyToExchangeProvider
+            .overrideWithProvider(moneyToExchangeProviderTest)
       ],
       child: MaterialApp(
         home: Material(

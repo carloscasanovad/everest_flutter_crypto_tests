@@ -1,6 +1,7 @@
 import 'package:everest_flutter_crypto_tests/l10n/app_localizations_en.dart';
 import 'package:everest_flutter_crypto_tests/modules/exchange/widgets/bottom_sheet_widget.dart';
 import 'package:everest_flutter_crypto_tests/shared/constants/app_colors.dart';
+import 'package:everest_flutter_crypto_tests/shared/constants/app_text_styles.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -20,7 +21,13 @@ void main() {
               cryptoBalance: faker.currency.random.decimal(scale: 15, min: 1),
               cryptoToExchangeData: FakeData.createCryptoViewData(),
             ));
+
         await tester.pumpAndSettle();
+
+        final moneyToExchangeText =
+            tester.widget<Text>(find.byKey(const Key('moneyToExchangeText')));
+        expect(moneyToExchangeText.data, '1.000000 BTC');
+        expect(moneyToExchangeText.style, kDefaultParagraphStyle);
 
         final bottomSheetContainer = tester
             .widget<Container>(find.byKey(const Key('bottomSheetContainer')));
