@@ -17,7 +17,29 @@ void main() {
         ExchangeArguments exchangeArguments =
             FakeData.createExchangeArguments();
         String selectedCrypto = '';
-        List<CryptoDataViewData> cryptoList = [];
+        List<CryptoDataViewData> cryptoList = [
+          CryptoDataViewData(
+              id: '',
+              symbol: '',
+              name: '',
+              image: '',
+              current_price: 1,
+              market_cap_change_percentage_24h: 1),
+          CryptoDataViewData(
+              id: 'btc',
+              symbol: 'btc',
+              name: '',
+              image: '',
+              current_price: 1,
+              market_cap_change_percentage_24h: 1),
+          CryptoDataViewData(
+              id: 'eth',
+              symbol: 'eth',
+              name: '',
+              image: '',
+              current_price: 1,
+              market_cap_change_percentage_24h: 1),
+        ];
         String cryptoSymbol = exchangeArguments.crypto.symbol.toUpperCase();
 
         await loadPage(
@@ -58,6 +80,10 @@ void main() {
         expect(cryptoToExchangeDropdown.menuMaxHeight, 300);
         expect(cryptoToExchangeDropdown.onChanged.toString().isNotEmpty, true);
         await tester.tap(find.byKey(const Key("cryptoToExchangeDropdown")));
+
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.byKey(const Key("btc")).last);
 
         await tester.pumpAndSettle();
       });
