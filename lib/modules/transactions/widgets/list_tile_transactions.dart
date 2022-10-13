@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../../shared/constants/app_colors.dart';
 import '../../../shared/constants/app_text_styles.dart';
 import '../model/transactions_model.dart';
 import 'transaction_modal_details.dart';
@@ -28,67 +29,77 @@ class ListTileTransactions extends StatelessWidget {
       AppLocalizations.of(context)!.exchangeRate:
           userTransaction.exchangeEqualsTo,
     };
-    return ListTile(
-      onTap: (() {
-        showModalBottomSheet(
-          context: context,
-          builder: (context) {
-            return TransactionModalDetails(
-              formatedDateTime: formatedDateTime,
-              transactionDetails: transactionDetails,
+    return Column(
+      children: [
+        const Divider(
+          key: Key('separatorDivider'),
+          thickness: 1,
+          height: 4,
+          color: kDefaultLightGrey,
+        ),
+        ListTile(
+          onTap: (() {
+            showModalBottomSheet(
+              context: context,
+              builder: (context) {
+                return TransactionModalDetails(
+                  formatedDateTime: formatedDateTime,
+                  transactionDetails: transactionDetails,
+                );
+              },
             );
-          },
-        );
-      }),
-      title: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: 4.0,
-        ),
-        child: Text(
-          userTransaction.cryptoBeingExchangedInfo,
-          style: kDefaultTransactionTitleStyle,
-        ),
-      ),
-      subtitle: Text(
-        formattedDate,
-        style: kDefaultTransactionSubTitleStyle,
-      ),
-      trailing: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: <Widget>[
-              Expanded(
-                child: Text(
-                  userTransaction.cryptoToExchangeInfo,
-                  style: kDefaultTitle2TitleStyle,
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.only(top: 4),
-                  width: 150,
-                  height: 25,
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 2.0,
-                      ),
-                      child: Text(
-                        userTransaction.moneyBeingExchangedInfo,
-                        style: kDefaultTransactionSubTitleStyle,
+          }),
+          title: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 4.0,
+            ),
+            child: Text(
+              userTransaction.cryptoBeingExchangedInfo,
+              style: kDefaultTransactionTitleStyle,
+            ),
+          ),
+          subtitle: Text(
+            formattedDate,
+            style: kDefaultTransactionSubTitleStyle,
+          ),
+          trailing: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  Expanded(
+                    child: Text(
+                      userTransaction.cryptoToExchangeInfo,
+                      style: kDefaultTitle2TitleStyle,
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.only(top: 4),
+                      width: 150,
+                      height: 25,
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 2.0,
+                          ),
+                          child: Text(
+                            userTransaction.moneyBeingExchangedInfo,
+                            style: kDefaultTransactionSubTitleStyle,
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
+                ],
               ),
             ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

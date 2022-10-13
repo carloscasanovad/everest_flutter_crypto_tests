@@ -32,12 +32,6 @@ class TransactionsPage extends HookConsumerWidget {
               const SizedBox(
                 height: 20,
               ),
-              const Divider(
-                key: Key('mainDivider'),
-                height: 10,
-                thickness: 1,
-                color: kDefaultLightGrey,
-              ),
               Expanded(
                   child: ListViewTransactions(
                 userTransactions: userTransactions,

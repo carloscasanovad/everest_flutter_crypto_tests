@@ -40,7 +40,6 @@ class _ReviewInformationButtonState
     return AnimatedContainer(
       duration: const Duration(milliseconds: 500),
       curve: Curves.easeIn,
-      onEnd: () => setState(() => isAnimating = !isAnimating),
       height: 50,
       width: width,
       child: isStreched
@@ -75,9 +74,6 @@ class _ReviewInformationButtonState
                       context,
                       SuccessPage.route,
                     );
-                  });
-                  setState(() {
-                    state = ButtonState.init;
                   });
                 },
                 shape: RoundedRectangleBorder(

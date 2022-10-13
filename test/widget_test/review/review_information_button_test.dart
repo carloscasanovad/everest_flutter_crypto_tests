@@ -55,7 +55,8 @@ void main() {
       await tester.tap(find.byType(MaterialButton));
 
       await tester.pump(const Duration(seconds: 3));
-      
+
+
       await tester.pumpAndSettle();
 
       expect(find.byType(SuccessPage), findsOneWidget);

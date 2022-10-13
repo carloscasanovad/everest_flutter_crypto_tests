@@ -18,12 +18,6 @@ void main() {
 
       await tester.pumpAndSettle();
 
-      final divider =
-          tester.widget<Divider>(find.byKey(const Key('mainDivider')));
-      expect(divider.height, 10);
-      expect(divider.color, kDefaultLightGrey);
-      expect(divider.thickness, 1);
-
       final mainPadding =
           tester.widget<Padding>(find.byKey(const Key('mainPadding')));
       expect(mainPadding.padding.horizontal, 40);
