@@ -1,8 +1,9 @@
+import 'package:everest_flutter_crypto_tests/l10n/app_localizations.dart';
+import 'package:everest_flutter_crypto_tests/shared/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SetupWidgetTester extends StatelessWidget {
   final Widget child;
@@ -24,6 +25,7 @@ class SetupWidgetTester extends StatelessWidget {
           GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: AppLocalizations.supportedLocales,
+        onGenerateRoute: onGenerateRoute,
       ),
     );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/constants/app_text_styles.dart';
 import '../../../shared/widgets/default_error_widget.dart';
 import '../../../shared/widgets/default_loading_spinner.dart';
@@ -28,14 +28,13 @@ class ExchangeBody extends HookConsumerWidget {
             .toList();
         String selectedCrypto = cryptoList[0].symbol.toUpperCase();
         return Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 20,
-            horizontal: 20,
-          ),
+          key: const Key('mainPadding'),
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               Text(
+              Text(
+                key: const Key('exchangeTitle'),
                 AppLocalizations.of(context)!.exchangeTitle,
                 style: kTitle2TextStyle,
               ),

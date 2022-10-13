@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/constants/app_colors.dart';
 import '../../../shared/constants/app_text_styles.dart';
 import '../model/exchange_arguments.dart';
@@ -34,15 +34,16 @@ class UserBalance extends StatelessWidget implements PreferredSizeWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-             Expanded(
-               child: Text(
+            Expanded(
+              child: Text(
                 AppLocalizations.of(context)!.totalBalance,
                 style: kDefaultGreyParagraphStyle,
-                         ),
-             ),
+              ),
+            ),
             Expanded(
               child: Text(
                 '$userCyptoBalance $cryptoSymbol',
+                textAlign: TextAlign.end,
                 style: kDefaultParagraphStyle,
               ),
             ),
@@ -51,7 +52,7 @@ class UserBalance extends StatelessWidget implements PreferredSizeWidget {
       ),
     );
   }
-  
+
   @override
   Size get preferredSize => const Size(double.infinity, 50);
 }

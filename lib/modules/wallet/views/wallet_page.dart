@@ -8,9 +8,9 @@ class WalletPage extends StatelessWidget {
   static const route = '/wallet';
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: WalletScreen(),
-      bottomNavigationBar: BottomNavBar(),
+    return Scaffold(
+      body: const WalletScreen(),
+      bottomNavigationBar: BottomNavBar(index: 0),
     );
   }
 }

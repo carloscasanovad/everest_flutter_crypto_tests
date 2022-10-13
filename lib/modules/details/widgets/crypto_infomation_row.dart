@@ -17,15 +17,25 @@ class CryptoInformationRow extends StatelessWidget {
     return Column(
       children: [
         const Divider(
+          key: Key('informationDivider'),
           thickness: 1,
           height: 30,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Text(description, style: kDetailsCryptoInfoDescriptionStyle),
-            Text(value, style: kDetailsCryptoInfoValueStyle),
+            Expanded(
+                child: Text(
+              description,
+              style: kDetailsCryptoInfoDescriptionStyle,
+            )),
+            Expanded(
+                child: Text(
+              value,
+              style: kDetailsCryptoInfoValueStyle,
+              textAlign: TextAlign.end,
+            )),
           ],
         ),
       ],

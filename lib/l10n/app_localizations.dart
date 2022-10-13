@@ -170,7 +170,7 @@ abstract class AppLocalizations {
   /// user crypto balance for an specific crypto
   ///
   /// In en, this message translates to:
-  /// **'Total balance:'**
+  /// **'Total balance'**
   String get totalBalance;
 
   /// confirm appBar Title
@@ -208,12 +208,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Exchange rate'**
   String get exchangeRate;
-
-  /// transactions appBar title
-  ///
-  /// In en, this message translates to:
-  /// **'Transactions'**
-  String get transactionsAppBar;
 
   /// portfolio text for navBar
   ///

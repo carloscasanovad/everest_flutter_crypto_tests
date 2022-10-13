@@ -13,6 +13,7 @@ class LineChartListViewButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      key: const Key('lineChartButtonsSizedBox'),
       height: 38,
       child: ListView(
         scrollDirection: Axis.horizontal,

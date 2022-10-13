@@ -4,9 +4,10 @@ import 'package:everest_flutter_crypto_tests/modules/transactions/widgets/transa
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'helpers/setup_widget_tester.dart';
 
-main() {
+import '../../helpers/setup_widget_tester.dart';
+
+void main() {
   testWidgets(
     'WHEN TransactionModal is open, THEN find header and body information',
     (WidgetTester tester) async {

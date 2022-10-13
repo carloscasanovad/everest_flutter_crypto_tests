@@ -41,7 +41,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get insufficientFunds => 'Insufficient funds!';
 
   @override
-  String get totalBalance => 'Total balance:';
+  String get totalBalance => 'Total balance';
 
   @override
   String get confirm => 'Confirm conversion';
@@ -60,9 +60,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get exchangeRate => 'Exchange rate';
-
-  @override
-  String get transactionsAppBar => 'Transactions';
 
   @override
   String get portfolio => 'Portfolio';

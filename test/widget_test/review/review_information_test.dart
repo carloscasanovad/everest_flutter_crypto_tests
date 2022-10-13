@@ -1,12 +1,14 @@
+import 'package:everest_flutter_crypto_tests/l10n/app_localizations_en.dart';
+import 'package:everest_flutter_crypto_tests/l10n/app_localizations_es.dart';
 import 'package:everest_flutter_crypto_tests/modules/review/widgets/review_information.dart';
 import 'package:everest_flutter_crypto_tests/modules/review/widgets/review_information_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'helpers/fake_data.dart';
-import 'helpers/setup_widget_tester.dart';
+import '../../helpers/fake_data.dart';
+import '../../helpers/setup_widget_tester.dart';
 
-main() {
+void main() {
   testWidgets(
     'WHEN ReviewInformation is created, THEN ensure that main widgets exists',
     (WidgetTester tester) async {
@@ -20,6 +22,9 @@ main() {
       expect(find.byKey(const Key('informationKey')), findsNWidgets(3));
       expect(find.byKey(const Key('informationValue')), findsNWidgets(3));
       expect(find.byType(ReviewInformationButton), findsOneWidget);
+      expect(find.text(AppLocalizationsEn().receive), findsOneWidget);
+      expect(find.text(AppLocalizationsEs().receive), findsNothing);
+      expect(find.text(AppLocalizationsEn().exchangeRate), findsOneWidget);
     },
   );
 }

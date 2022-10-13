@@ -1,3 +1,4 @@
+import 'package:everest_flutter_crypto_tests/modules/details/views/details_page.dart';
 import 'package:everest_flutter_crypto_tests/modules/wallet/model/crypto_data_view_data.dart';
 import 'package:everest_flutter_crypto_tests/modules/wallet/widgets/crypto_list_tile.dart';
 import 'package:faker/faker.dart';
@@ -5,20 +6,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:intl/intl.dart';
 import 'package:network_image_mock/network_image_mock.dart';
-import 'helpers/fake_data.dart';
-import 'helpers/setup_widget_tester.dart';
 
-main() {
-  group("WalletPage/Body Test", () {
+import '../../helpers/fake_data.dart';
+import '../../helpers/setup_widget_tester.dart';
+
+void main() {
+  final formater = NumberFormat("#,##0.00", "pt");
+  CryptoDataViewData crypto = FakeData.createCryptoViewData();
+  double cryptoBalance = faker.currency.random.decimal(scale: 15, min: 1);
+  double cryptoBalanceExchanged = cryptoBalance / crypto.current_price;
+
+  group("CryptoListTile Test", () {
     testWidgets(
         "WHEN CryptoListTile is created, THEN ensure that given data is being used on the widget",
         (WidgetTester tester) async {
       mockNetworkImagesFor(() async {
-        final formater = NumberFormat("#,##0.00", "pt");
-        CryptoDataViewData crypto = FakeData.createCryptoViewData();
-        double cryptoBalance = faker.currency.random.decimal(scale: 15, min: 1);
-        double cryptoBalanceExchanged = cryptoBalance / crypto.current_price;
-
         await loadPage(tester,
             CryptoListTile(crypto: crypto, cryptoBalance: cryptoBalance));
 
@@ -41,7 +43,33 @@ main() {
         expect(userCryptoBalance.data, 'R\$ ${formater.format(cryptoBalance)}');
         expect(userCryptoBalanceExchanged.data,
             '${cryptoBalanceExchanged.toStringAsFixed(2)} ${crypto.symbol.toUpperCase()}');
+
+        await tester.tap(find.byType(IconButton));
+
+        await tester.pumpAndSettle();
+
+        expect(find.byType(DetailsPage), findsOneWidget);
       });
     });
+  });
+
+  group('NavigatetoDetails CryptoListTile', () {
+    testWidgets(
+      "WHEN tap on the ListTile of CryptoLisTile, THEN navigate to DetailsPage",
+      (WidgetTester tester) async {
+        mockNetworkImagesFor(() async {
+          await loadPage(tester,
+              CryptoListTile(crypto: crypto, cryptoBalance: cryptoBalance));
+
+          await tester.pumpAndSettle();
+
+          await tester.tap(find.byType(ListTile));
+
+          await tester.pumpAndSettle();
+
+          expect(find.byType(DetailsPage), findsOneWidget);
+        });
+      },
+    );
   });
 }

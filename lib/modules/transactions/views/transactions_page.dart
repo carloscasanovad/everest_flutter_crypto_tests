@@ -1,25 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/constants/app_colors.dart';
 import '../../../shared/constants/app_text_styles.dart';
+import '../../../shared/controllers/user_transaction_notifier.dart';
 import '../../../shared/widgets/bottom_nav_bar.dart';
 import '../widgets/list_view_transactions.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class TransactionsPage extends StatelessWidget {
+class TransactionsPage extends HookConsumerWidget {
   const TransactionsPage({super.key});
   static const route = "/transaction";
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final userTransactions = ref.watch(movementsProvider);
     return Scaffold(
       body: SafeArea(
         child: Padding(
+          key: const Key('mainPadding'),
           padding: const EdgeInsets.symmetric(
             vertical: 30,
             horizontal: 20,
           ),
           child: Column(
-            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -29,17 +32,15 @@ class TransactionsPage extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const Divider(
-                height: 10,
-                thickness: 1,
-                color: kDefaultLightGrey,
-              ),
-              const ListViewTransactions(),
+              Expanded(
+                  child: ListViewTransactions(
+                userTransactions: userTransactions,
+              )),
             ],
           ),
         ),
       ),
-      bottomNavigationBar: const BottomNavBar(),
+      bottomNavigationBar: BottomNavBar(index: 1),
     );
   }
 }

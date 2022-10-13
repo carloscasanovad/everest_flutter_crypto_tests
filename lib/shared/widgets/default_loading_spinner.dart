@@ -5,13 +5,15 @@ import '../constants/app_colors.dart';
 
 class DefaultLoadingSpinner extends StatelessWidget {
   const DefaultLoadingSpinner({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return const Center(
+      key: Key("centerSpinner"),
       child: SpinKitFadingCube(
+        key: Key("loadingSpinner"),
         color: kDefaultRed,
         size: 50.0,
       ),

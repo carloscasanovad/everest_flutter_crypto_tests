@@ -1,9 +1,10 @@
 import 'package:decimal/decimal.dart';
+import 'package:everest_flutter_crypto_tests/modules/exchange/controllers/regex_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/constants/app_colors.dart';
 import '../../../shared/constants/app_text_styles.dart';
 import '../../wallet/model/crypto_data_view_data.dart';
@@ -52,6 +53,7 @@ class _ExchangeFormFieldWidgetState
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TextFormField(
+          key: const Key('textFormField'),
           style: const TextStyle(
             fontSize: 28,
           ),
@@ -63,11 +65,9 @@ class _ExchangeFormFieldWidgetState
           },
           onChanged: (value) {
             if (value != '') {
-              Decimal formattedValue =
-                  Decimal.parse(value.replaceAll(RegExp(r','), '.'));
+              Decimal formattedValue = RegexController.arrangeNumber(value);
               moneyToChange =
                   formattedValue.toDouble() * cryptoPrice.toDouble();
-
               handleOnChange(moneyToChange, true);
               if (formattedValue > userCyptoBalance) {
                 handleOnChange(0, false);
@@ -102,6 +102,7 @@ class _ExchangeFormFieldWidgetState
           height: 10,
         ),
         Text(
+          key: const Key('textHelper'),
           showMoneyHelper
               ? 'R\$ ${formater.format(moneyToChange)}'
               : AppLocalizations.of(context)!.insufficientFunds,

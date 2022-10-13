@@ -1,7 +1,7 @@
 import 'package:everest_flutter_crypto_tests/modules/exchange/widgets/user_balance.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/constants/app_colors.dart';
 import '../../../shared/constants/app_text_styles.dart';
 import '../../wallet/model/crypto_data_view_data.dart';
@@ -20,6 +20,7 @@ class ExchangeCustomAppBar extends HookConsumerWidget
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return AppBar(
+      key: const Key('customAppBar'),
       elevation: 3,
       backgroundColor: kDefaultBackgroundColor,
       title: Text(
@@ -41,6 +42,7 @@ class ExchangeCustomAppBar extends HookConsumerWidget
           Navigator.of(context).pop();
         },
         icon: const Icon(
+          key:  Key('appBarIcon'),
           Icons.arrow_back_ios,
           color: kDefaultBlack,
           size: 21,

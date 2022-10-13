@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../../shared/widgets/default_appbar.dart';
 import '../model/review_arguments.dart';
 import '../widgets/body_review_page.dart';
@@ -18,6 +18,7 @@ class ReviewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DefaultAppBar(
+        key: const Key('reviewAppBar'),
         title: AppLocalizations.of(context)!.confirm,
         onPressed: () {
           Navigator.of(context).pop();

@@ -1,17 +1,39 @@
-import '../../modules/transactions/views/transactions_page.dart';
-import '../../modules/wallet/views/wallet_page.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../l10n/app_localizations.dart';
+import '../../modules/transactions/views/transactions_page.dart';
+import '../../modules/wallet/views/wallet_page.dart';
 import '../constants/app_colors.dart';
 import '../controllers/asset_provider.dart';
 import '../controllers/providers.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BottomNavBar extends HookConsumerWidget {
-  const BottomNavBar({super.key});
+  int index;
+  BottomNavBar({
+    super.key,
+    required this.index,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    void onItemTapped(int index) {
+      switch (index) {
+        case 0:
+          Navigator.pushNamed(
+            context,
+            WalletPage.route,
+          );
+          break;
+        case 1:
+          Navigator.pushNamed(
+            context,
+            TransactionsPage.route,
+          );
+          break;
+      }
+    }
+
     int selectedIndex = ref.watch(navBarIndexProvider);
     return BottomNavigationBar(
       key: const Key('bottomNavBar'),
@@ -19,9 +41,7 @@ class BottomNavBar extends HookConsumerWidget {
       currentIndex: selectedIndex,
       onTap: (index) {
         ref.read(navBarIndexProvider.notifier).state = index;
-        index == 0
-            ? Navigator.pushNamed(context, WalletPage.route)
-            : Navigator.pushNamed(context, TransactionsPage.route);
+        onItemTapped(index);
       },
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(

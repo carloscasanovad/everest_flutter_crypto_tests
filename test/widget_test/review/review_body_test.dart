@@ -3,10 +3,11 @@ import 'package:everest_flutter_crypto_tests/modules/review/widgets/body_review_
 import 'package:everest_flutter_crypto_tests/modules/review/widgets/review_information.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'helpers/fake_data.dart';
-import 'helpers/setup_widget_tester.dart';
 
-main() {
+import '../../helpers/fake_data.dart';
+import '../../helpers/setup_widget_tester.dart';
+
+void main() {
   testWidgets(
     'WHEN ReviewBody is built, THEN ensure that title and information exists',
     (WidgetTester tester) async {

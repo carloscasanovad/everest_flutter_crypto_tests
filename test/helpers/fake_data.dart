@@ -1,9 +1,23 @@
+import 'dart:math';
+
+import 'package:everest_flutter_crypto_tests/modules/details/mapper/market_chart_mapper.dart';
 import 'package:everest_flutter_crypto_tests/modules/details/model/crypto_data_arguments.dart';
+import 'package:everest_flutter_crypto_tests/modules/details/model/market_chart_view_data.dart';
+import 'package:everest_flutter_crypto_tests/modules/details/repositories/market_chart_repository.dart';
+import 'package:everest_flutter_crypto_tests/modules/details/useCase/get_crypto_market_chart_useCase.dart';
 import 'package:everest_flutter_crypto_tests/modules/exchange/model/exchange_arguments.dart';
 import 'package:everest_flutter_crypto_tests/modules/review/model/review_arguments.dart';
 import 'package:everest_flutter_crypto_tests/modules/transactions/model/transactions_model.dart';
 import 'package:everest_flutter_crypto_tests/modules/wallet/model/crypto_data_view_data.dart';
+import 'package:everest_flutter_crypto_tests/modules/wallet/model/crypto_list_view_data.dart';
+import 'package:everest_flutter_crypto_tests/modules/wallet/repositories/crypto_data_repository.dart';
+import 'package:everest_flutter_crypto_tests/modules/wallet/model/user_wallet_model.dart';
+import 'package:everest_flutter_crypto_tests/modules/wallet/useCases/get_cryptos_data_useCase.dart';
+import 'package:everest_flutter_crypto_tests/shared/api/crypto_base_endpoint.dart';
+import 'package:everest_flutter_crypto_tests/shared/api/model/crypto_data_response.dart';
+import 'package:everest_flutter_crypto_tests/shared/api/model/market_data_response.dart';
 import 'package:faker/faker.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class FakeData {
   static CryptoDataViewData createCryptoViewData() {
@@ -16,6 +30,36 @@ class FakeData {
       market_cap_change_percentage_24h:
           faker.currency.random.decimal(scale: 15, min: 1),
     );
+    return repo;
+  }
+
+  static Future<CryptoListViewData> createFutureCryptoViewData() async {
+    Future<CryptoListViewData> repo =
+        Future.delayed(const Duration(seconds: 1), () {
+      return CryptoListViewData(cryptoListDataView: [
+        CryptoDataViewData(
+          id: 'bitcoin',
+          symbol: 'btc',
+          name: 'btc',
+          image: '',
+          current_price: 100,
+          market_cap_change_percentage_24h: 100,
+        )
+      ]);
+    });
+    return repo;
+  }
+
+  static createMarketChartViewData() {
+    MarketChartViewData repo = MarketChartViewData(prices: [
+      [faker.currency.random.integer(2), faker.currency.random.integer(2)],
+      [faker.currency.random.integer(2), faker.currency.random.integer(2)],
+      [faker.currency.random.integer(2), faker.currency.random.integer(2)],
+      [faker.currency.random.integer(2), faker.currency.random.integer(2)],
+      [faker.currency.random.integer(2), faker.currency.random.integer(2)],
+      [faker.currency.random.integer(2), faker.currency.random.integer(2)],
+      [faker.currency.random.integer(2), faker.currency.random.integer(2)],
+    ]);
     return repo;
   }
 
@@ -56,4 +100,70 @@ class FakeData {
         date: faker.date.dateTime());
     return repo;
   }
+}
+
+class FakeCryptoDataRepository implements GetCryptosDataUseCase {
+  @override
+  Future<CryptoListViewData> execute() async {
+    final response = FakeData.createFutureCryptoViewData();
+    return response;
+  }
+
+  @override
+  Future<List<UserWalletModel>> getWallet() async {
+    final response = [
+      CryptoDataResponse(
+          current_price: 100,
+          id: 'btc',
+          image: 'btc',
+          market_cap_change_percentage_24h: 100,
+          name: 'btc',
+          symbol: 'btc')
+    ];
+    List<UserWalletModel> cryptoWallet = [];
+    for (var crypto in response) {
+      cryptoWallet.add(UserWalletModel(
+        id: crypto.id,
+        userCryptoBalance: Random().nextInt(503) * 4,
+      ));
+    }
+    return cryptoWallet;
+  }
+
+  @override
+  CryptoDataRepository get repository => throw UnimplementedError();
+}
+
+class FakeMarketChartRepository implements MarketChartRepository {
+  @override
+  Future<MarketDataResponse> getCryptoMarketData(String crypto) async {
+    final response = await Future.delayed(const Duration(seconds: 1), () {
+      return MarketDataResponse([
+        [0, 1],
+        [1, 0],
+        [0, 1],
+        [1, 0],
+        [0, 1],
+        [1, 0],
+        [0, 1],
+        [1, 0],
+      ]);
+    });
+    return response;
+  }
+
+  @override
+  CryptoBaseEndpoint get baseEndPoint => throw UnimplementedError();
+}
+
+class FakeGetCryptoMarketChartUseCase implements GetCryptoMarketChartUseCase {
+  @override
+  Future<MarketChartViewData> start(String crypto) async {
+    final response =
+        await FakeMarketChartRepository().getCryptoMarketData(crypto);
+    return response.toViewMarketChartData();
+  }
+
+  @override
+  FakeMarketChartRepository get repository => throw UnimplementedError();
 }

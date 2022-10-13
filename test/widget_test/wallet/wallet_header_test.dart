@@ -4,9 +4,10 @@ import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:intl/intl.dart';
-import 'helpers/setup_widget_tester.dart';
 
-main() {
+import '../../helpers/setup_widget_tester.dart';
+
+void main() {
   group("WalletPage/Header Test", () {
     testWidgets(
         'WHEN the IconButton of WalletPage is clicked, THEN change visibility icon',

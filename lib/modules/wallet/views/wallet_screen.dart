@@ -9,8 +9,8 @@ import '../widgets/header.dart';
 
 class WalletScreen extends HookConsumerWidget {
   const WalletScreen({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -26,10 +26,11 @@ class WalletScreen extends HookConsumerWidget {
         }).toList();
 
         return SafeArea(
+          key: const Key('walletSafeArea'),
           child: Column(
             children: <Widget>[
               Header(userCryptoWallet: userCryptoWallet),
-              CryptoListView(userCryptoWallet: userCryptoWallet),
+              Expanded(child: CryptoListView(userCryptoWallet: userCryptoWallet)),
             ],
           ),
         );

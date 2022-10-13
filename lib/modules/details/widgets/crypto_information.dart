@@ -1,8 +1,8 @@
+import '../../../l10n/app_localizations.dart';
 import '../model/crypto_data_arguments.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../model/market_chart_view_data.dart';
 import '../controllers/providers.dart';
 import 'crypto_infomation_row.dart';
@@ -34,6 +34,7 @@ class CryptoInformation extends HookConsumerWidget {
     }
 
     return Padding(
+      key: const Key('cryptoInformationPadding'),
       padding: const EdgeInsets.only(
         top: 8,
         bottom: 30,
