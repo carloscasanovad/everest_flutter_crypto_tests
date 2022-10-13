@@ -40,19 +40,23 @@ class CryptoListTile extends HookConsumerWidget {
       },
       contentPadding: const EdgeInsets.only(left: 15),
       title: Text(
+        key: const Key('listTileTitle'),
         crypto.name,
         style: kCryptoCardTitleStyle,
       ),
       subtitle: Text(
+        key: const Key('listTileSubtitle'),
         crypto.symbol.toUpperCase(),
         style: kDefaultParagraphStyle,
       ),
       leading: CircleAvatar(
+        key: const Key('listTileLeading'),
         backgroundColor: const Color(0x00ffffff),
         radius: 20,
         backgroundImage: NetworkImage(crypto.image),
       ),
       trailing: Row(
+        key: const Key('listTileTrailing'),
         mainAxisSize: MainAxisSize.min,
         children: [
           Column(
@@ -60,6 +64,7 @@ class CryptoListTile extends HookConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
               Text(
+                key: const Key('userCryptoBalance'),
                 visibility
                     ? 'R\$ ${formater.format(cryptoBalance)}'
                     : 'R\$ $kDefaultHideValues',
@@ -72,6 +77,7 @@ class CryptoListTile extends HookConsumerWidget {
                 child: Align(
                   alignment: Alignment.centerRight,
                   child: Text(
+                    key: const Key('userCryptoBalanceExchanged'),
                     visibility
                         ? '${cryptoBalanceExchanged.toStringAsFixed(2)} $cryptoSymbol'
                         : "$kDefaultHideValues $cryptoSymbol",

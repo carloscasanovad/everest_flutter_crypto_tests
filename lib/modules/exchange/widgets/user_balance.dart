@@ -34,13 +34,17 @@ class UserBalance extends StatelessWidget implements PreferredSizeWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-             Text(
-              AppLocalizations.of(context)!.totalBalance,
-              style: kDefaultGreyParagraphStyle,
-            ),
-            Text(
-              '$userCyptoBalance $cryptoSymbol',
-              style: kDefaultParagraphStyle,
+             Expanded(
+               child: Text(
+                AppLocalizations.of(context)!.totalBalance,
+                style: kDefaultGreyParagraphStyle,
+                         ),
+             ),
+            Expanded(
+              child: Text(
+                '$userCyptoBalance $cryptoSymbol',
+                style: kDefaultParagraphStyle,
+              ),
             ),
           ],
         ),

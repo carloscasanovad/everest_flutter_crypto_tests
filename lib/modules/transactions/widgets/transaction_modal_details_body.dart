@@ -19,13 +19,18 @@ class TransactionModalDetailsBody extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              transactionDetails.keys.elementAt(index),
-              style: kDefaultGreyParagraphStyle,
+            Expanded(
+              child: Text(
+                transactionDetails.keys.elementAt(index),
+                style: kDefaultGreyParagraphStyle,
+              ),
             ),
-            Text(
-              transactionDetails.values.elementAt(index),
-              style: kDefaultParagraphStyle,
+            Expanded(
+              child: Text(
+                transactionDetails.values.elementAt(index),
+                style: kDefaultParagraphStyle,
+                textAlign: TextAlign.end,
+              ),
             ),
           ],
         ),

@@ -39,7 +39,7 @@ class SuccessPage extends HookConsumerWidget {
           children: [
             Hero(
               tag: 'check',
-              child: Image.asset(successIcon),
+              child: Image.asset(key: const Key('successImage'), successIcon),
             ),
             Container(
               padding: const EdgeInsets.symmetric(

@@ -21,18 +21,22 @@ class TransactionModalDetails extends StatelessWidget {
       ),
       child: Column(
         children: [
-          TransactionModalDetailsHeader(
-            formatedDateTime: formatedDateTime,
+          Expanded(
+            child: TransactionModalDetailsHeader(
+              formatedDateTime: formatedDateTime,
+            ),
           ),
-          ListView.builder(
-            shrinkWrap: true,
-            itemCount: transactionDetails.length,
-            itemBuilder: (context, index) {
-              return TransactionModalDetailsBody(
-                transactionDetails: transactionDetails,
-                index: index,
-              );
-            },
+          Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: transactionDetails.length,
+              itemBuilder: (context, index) {
+                return TransactionModalDetailsBody(
+                  transactionDetails: transactionDetails,
+                  index: index,
+                );
+              },
+            ),
           )
         ],
       ),

@@ -26,6 +26,7 @@ class BottomSheetWidget extends HookConsumerWidget {
     double estimatedValue =
         moneyToExchange / cryptoBeingExchangedData.current_price;
     return Container(
+      key: const Key('bottomSheetContainer'),
       padding: const EdgeInsets.symmetric(
         vertical: 10,
         horizontal: 20,
@@ -61,9 +62,11 @@ class BottomSheetWidget extends HookConsumerWidget {
             ],
           ),
           FloatingActionButton(
+            key: const Key('floatingButton'),
             isExtended: true,
             backgroundColor: ableToExchange ? kDefaultRed : kDefaultSoftGrey,
             child: const Icon(
+              key: Key('floatingButtonIcon'),
               Icons.arrow_forward_ios,
               size: 18,
             ),

@@ -26,6 +26,8 @@ dependencies:
   flutter_spinkit: ^5.1.0
   decimal: ^2.3.0
   hooks_riverpod: ^2.0.2
+  faker: ^2.0.0
+  network_image_mock: ^2.1.1
 
 dev_dependencies:
   flutter_test:
